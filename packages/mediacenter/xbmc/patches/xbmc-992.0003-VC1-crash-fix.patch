@@ -1,0 +1,13 @@
+diff --git a/xbmc/cores/dvdplayer/DVDDemuxers/DVDDemuxUtils.cpp b/xbmc/cores/dvdplayer/DVDDemuxers/DVDDemuxUtils.cpp
+index 811de23..de6268d 100644
+--- a/xbmc/cores/dvdplayer/DVDDemuxers/DVDDemuxUtils.cpp
++++ b/xbmc/cores/dvdplayer/DVDDemuxers/DVDDemuxUtils.cpp
+@@ -31,7 +31,7 @@ void CDVDDemuxUtils::FreeDemuxPacket(DemuxPacket* pPacket)
+   if (pPacket)
+   {
+     try {
+-      if (pPacket->pData) _aligned_free(pPacket->pData);
++      if ((pPacket->pData) && (pPacket->iSize > 0)) _aligned_free(pPacket->pData);
+       delete pPacket;
+     }
+     catch(...) {
