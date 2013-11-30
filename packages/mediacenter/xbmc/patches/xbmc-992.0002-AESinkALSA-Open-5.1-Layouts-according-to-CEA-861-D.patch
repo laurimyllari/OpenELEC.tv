@@ -1,0 +1,46 @@
+From e480153332ccb1bbb642416c67e1be217d06fed2 Mon Sep 17 00:00:00 2001
+From: fritsch <Peter.Fruehberger@gmail.com>
+Date: Wed, 27 Nov 2013 21:49:47 +0100
+Subject: [PATCH] AESinkALSA: Open 5.1 Layouts according to CEA-861-D
+
+---
+ xbmc/cores/AudioEngine/Sinks/AESinkALSA.cpp |   14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/xbmc/cores/AudioEngine/Sinks/AESinkALSA.cpp b/xbmc/cores/AudioEngine/Sinks/AESinkALSA.cpp
+index b02581d..4f63535 100644
+--- a/xbmc/cores/AudioEngine/Sinks/AESinkALSA.cpp
++++ b/xbmc/cores/AudioEngine/Sinks/AESinkALSA.cpp
+@@ -45,6 +45,12 @@ static enum AEChannel ALSAChannelMap[ALSA_MAX_CHANNELS + 1] = {
+   AE_CH_NULL
+ };
+ 
++static enum AEChannel ALSAChannelMapWide[ALSA_MAX_CHANNELS + 1] = {
++  AE_CH_FL      , AE_CH_FR      , AE_CH_SL      , AE_CH_SR      , AE_CH_FC      , AE_CH_LFE     , AE_CH_BL      , AE_CH_BR      ,
++  AE_CH_UNKNOWN1, AE_CH_UNKNOWN2, AE_CH_UNKNOWN3, AE_CH_UNKNOWN4, AE_CH_UNKNOWN5, AE_CH_UNKNOWN6, AE_CH_UNKNOWN7, AE_CH_UNKNOWN8, /* for p16v devices */
++  AE_CH_NULL
++};
++
+ static unsigned int ALSASampleRateList[] =
+ {
+   5512,
+@@ -94,9 +100,15 @@ inline CAEChannelInfo CAESinkALSA::GetChannelLayout(AEAudioFormat format)
+            count = 8;
+   else
+   {
++    // According to CEA-861-D only RL and RR are known. In case of a format having SL and SR channels
++    // but no BR BL channels, we use the wide map in order to open only the num of channels really
++    // needed.
++    enum AEChannel* channelMap = ALSAChannelMap;
++    if (format.m_channelLayout.HasChannel(AE_CH_SL) && !format.m_channelLayout.HasChannel(AE_CH_BL))
++      channelMap = ALSAChannelMapWide;
+     for (unsigned int c = 0; c < 8; ++c)
+       for (unsigned int i = 0; i < format.m_channelLayout.Count(); ++i)
+-        if (format.m_channelLayout[i] == ALSAChannelMap[c])
++        if (format.m_channelLayout[i] == channelMap[c])
+         {
+           count = c + 1;
+           break;
+-- 
+1.7.9.5
+

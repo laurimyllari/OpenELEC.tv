@@ -1,0 +1,30 @@
+From cae77036079c6776ef6d96f31383ec6489ca6ad1 Mon Sep 17 00:00:00 2001
+From: Rainer Hochecker <fernetmenta@online.de>
+Date: Wed, 27 Nov 2013 20:46:04 +0100
+Subject: [PATCH] ActiveAE: fix clipping for sinks using AE_FMT_FLOAT
+
+---
+ .../AudioEngine/Engines/ActiveAE/ActiveAE.cpp      |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/xbmc/cores/AudioEngine/Engines/ActiveAE/ActiveAE.cpp b/xbmc/cores/AudioEngine/Engines/ActiveAE/ActiveAE.cpp
+index 3fc6645..a3a6164 100644
+--- a/xbmc/cores/AudioEngine/Engines/ActiveAE/ActiveAE.cpp
++++ b/xbmc/cores/AudioEngine/Engines/ActiveAE/ActiveAE.cpp
+@@ -1649,9 +1649,11 @@ bool CActiveAE::RunStages()
+               fadingStep = delta / samples;
+             }
+ 
+-            // for streams amplification of turned off downmix normalization
++            // for stream amplification, 
++            // turned off downmix normalization,
++            // or if sink format is float (in order to prevent from clipping)
+             // we need to run on a per sample basis
+-            if ((*it)->m_amplify != 1.0 || !(*it)->m_resampleBuffers->m_normalize)
++            if ((*it)->m_amplify != 1.0 || !(*it)->m_resampleBuffers->m_normalize || (m_sinkFormat.m_dataFormat == AE_FMT_FLOAT))
+             {
+               nb_floats = out->pkt->config.channels / out->pkt->planes;
+               nb_loops = out->pkt->nb_samples;
+-- 
+1.7.9.5
+
