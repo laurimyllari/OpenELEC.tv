@@ -1,0 +1,133 @@
+From ec03df0cadd0a7ba0497038161c304965c806b4b Mon Sep 17 00:00:00 2001
+From: Chad Versace <chad.versace@intel.com>
+Date: Tue, 23 Jun 2015 15:48:17 -0700
+Subject: [PATCH 1/2] egl: Add support for DRM_FORMAT_R8, RG88, and GR88
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The Kodi/XBMC developers want to transcode NV12 to RGB with OpenGL shaders,
+importing the two source planes through EGL_EXT_image_dma_buf_import. That
+requires importing the Y plane as an R8 EGLImage and the UV plane as either an
+RG88 or GR88 EGLImage.
+
+This patch teaches the driver-independent part of EGL about the new
+formats. Real driver support is left for follow-up patches.
+
+CC: Peter Frühberger <peter.fruehberger@gmail.com>
+Cc: Rainer Hochecker <rainer.hochecker@onlinehome.de>
+Signed-off-by: Chad Versace <chad.versace@intel.com>
+---
+ src/egl/drivers/dri2/egl_dri2.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/src/egl/drivers/dri2/egl_dri2.c b/src/egl/drivers/dri2/egl_dri2.c
+index 65194cb..9813dd5 100644
+--- a/src/egl/drivers/dri2/egl_dri2.c
++++ b/src/egl/drivers/dri2/egl_dri2.c
+@@ -53,6 +53,22 @@
+ #include "egl_dri2.h"
+ #include "../util/u_atomic.h"
+ 
++/* The kernel header drm_fourcc.h defines the DRM formats below.  We duplicate
++ * some of the definitions here so that building Mesa won't bleeding-edge
++ * kernel headers.
++ */
++#ifndef DRM_FORMAT_R8
++#define DRM_FORMAT_R8            fourcc_code('R', '8', ' ', ' ') /* [7:0] R */
++#endif
++
++#ifndef DRM_FORMAT_RG88
++#define DRM_FORMAT_RG88          fourcc_code('R', 'G', '8', '8') /* [15:0] R:G 8:8 little endian */
++#endif
++
++#ifndef DRM_FORMAT_GR88
++#define DRM_FORMAT_GR88          fourcc_code('G', 'R', '8', '8') /* [15:0] G:R 8:8 little endian */
++#endif
++
+ const __DRIuseInvalidateExtension use_invalidate = {
+    .base = { __DRI_USE_INVALIDATE, 1 }
+ };
+@@ -1679,6 +1695,9 @@ dri2_check_dma_buf_format(const _EGLImageAttribs *attrs)
+    unsigned i, plane_n;
+ 
+    switch (attrs->DMABufFourCC.Value) {
++   case DRM_FORMAT_R8:
++   case DRM_FORMAT_RG88:
++   case DRM_FORMAT_GR88:
+    case DRM_FORMAT_RGB332:
+    case DRM_FORMAT_BGR233:
+    case DRM_FORMAT_XRGB4444:
+-- 
+2.1.4
+
+
+From 761b72a9e55c9a1dbc2e57df01d70348492248aa Mon Sep 17 00:00:00 2001
+From: Chad Versace <chad.versace@intel.com>
+Date: Tue, 23 Jun 2015 15:48:40 -0700
+Subject: [PATCH 2/2] i965: Support importing R8 and GR88 dma_bufs
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+EGL_EXT_image_dma_buf_import now supports those formats.
+
+CC: Peter Frühberger <peter.fruehberger@gmail.com>
+Cc: Rainer Hochecker <rainer.hochecker@onlinehome.de>
+Signed-off-by: Chad Versace <chad.versace@intel.com>
+---
+ include/GL/internal/dri_interface.h      | 9 +++++++--
+ src/mesa/drivers/dri/i965/intel_screen.c | 6 ++++++
+ 2 files changed, 13 insertions(+), 2 deletions(-)
+
+diff --git a/include/GL/internal/dri_interface.h b/include/GL/internal/dri_interface.h
+index c827bb6..97b6972 100644
+--- a/include/GL/internal/dri_interface.h
++++ b/include/GL/internal/dri_interface.h
+@@ -1101,12 +1101,15 @@ struct __DRIdri2ExtensionRec {
+ 
+ 
+ /**
+- * Four CC formats that matches with WL_DRM_FORMAT_* from wayland_drm.h
+- * and GBM_FORMAT_* from gbm.h, used with createImageFromNames.
++ * Four CC formats that matches with WL_DRM_FORMAT_* from wayland_drm.h,
++ * GBM_FORMAT_* from gbm.h, and DRM_FORMAT_* from drm_fourcc.h. Used with
++ * createImageFromNames.
+  *
+  * \since 5
+  */
+ 
++#define __DRI_IMAGE_FOURCC_R8		0x20203852
++#define __DRI_IMAGE_FOURCC_GR88		0x38385247
+ #define __DRI_IMAGE_FOURCC_RGB565	0x36314752
+ #define __DRI_IMAGE_FOURCC_ARGB8888	0x34325241
+ #define __DRI_IMAGE_FOURCC_XRGB8888	0x34325258
+@@ -1141,6 +1144,8 @@ struct __DRIdri2ExtensionRec {
+ #define __DRI_IMAGE_COMPONENTS_Y_U_V	0x3003
+ #define __DRI_IMAGE_COMPONENTS_Y_UV	0x3004
+ #define __DRI_IMAGE_COMPONENTS_Y_XUXV	0x3005
++#define __DRI_IMAGE_COMPONENTS_R	0x3006
++#define __DRI_IMAGE_COMPONENTS_RG	0x3007
+ 
+ 
+ /**
+diff --git a/src/mesa/drivers/dri/i965/intel_screen.c b/src/mesa/drivers/dri/i965/intel_screen.c
+index 1470b05..e035afe 100644
+--- a/src/mesa/drivers/dri/i965/intel_screen.c
++++ b/src/mesa/drivers/dri/i965/intel_screen.c
+@@ -229,6 +229,12 @@ static struct intel_image_format intel_image_formats[] = {
+    { __DRI_IMAGE_FOURCC_RGB565, __DRI_IMAGE_COMPONENTS_RGB, 1,
+      { { 0, 0, 0, __DRI_IMAGE_FORMAT_RGB565, 2 } } },
+ 
++   { __DRI_IMAGE_FOURCC_R8, __DRI_IMAGE_COMPONENTS_R, 1,
++     { { 0, 0, 0, __DRI_IMAGE_FORMAT_R8, 1 }, } },
++
++   { __DRI_IMAGE_FOURCC_GR88, __DRI_IMAGE_COMPONENTS_RG, 1,
++     { { 0, 0, 0, __DRI_IMAGE_FORMAT_GR88, 2 }, } },
++
+    { __DRI_IMAGE_FOURCC_YUV410, __DRI_IMAGE_COMPONENTS_Y_U_V, 3,
+      { { 0, 0, 0, __DRI_IMAGE_FORMAT_R8, 1 },
+        { 1, 2, 2, __DRI_IMAGE_FORMAT_R8, 1 },
+-- 
+2.1.4
+
