@@ -1,14 +1,14 @@
-From aa1a17b48bc91e5fb6c2f8fa512e6f0dbf536e0c Mon Sep 17 00:00:00 2001
+From b4ffaf58453eee29f505f5734a6aed322de80478 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sun, 17 May 2015 19:38:34 -0700
-Subject: [PATCH 01/17] build: Add liblcms2 to build system
+Subject: [PATCH 01/43] build: Add liblcms2 to build system
 
 ---
  configure.ac | 31 +++++++++++++++++++++++++++++++
  1 file changed, 31 insertions(+)
 
 diff --git a/configure.ac b/configure.ac
-index 136189f..76959f0 100644
+index 288dfe3..0afed1f 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -232,6 +232,10 @@ libusb_disabled_udev_found="== libusb disabled. =="
@@ -73,11 +73,10 @@ index 136189f..76959f0 100644
 -- 
 2.4.3
 
-
-From daf8b56bab75a560ff887f0716da96418d74b696 Mon Sep 17 00:00:00 2001
+From cef49294a0e229225c9fd8eded3e3186bd1fcced Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sun, 17 May 2015 21:55:06 -0700
-Subject: [PATCH 02/17] Pass video flags to GLSLOutput
+Subject: [PATCH 02/43] Pass video flags to GLSLOutput
 
 ---
  xbmc/cores/VideoRenderers/LinuxRendererGL.cpp         | 4 ++--
@@ -149,11 +148,10 @@ index 080023c..a334e5c 100644
 -- 
 2.4.3
 
-
-From 9eceab6a4488d6f4b91b186cf8072d602c991dd8 Mon Sep 17 00:00:00 2001
+From 60782c34c2b61d9073c3e1a07248bf03753a2e14 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Fri, 29 May 2015 10:59:32 -0700
-Subject: [PATCH 03/17] gl: start adding 3DLUT
+Subject: [PATCH 03/43] gl: start adding 3DLUT
 
 ---
  .../VideoRenderers/VideoShaders/GLSLOutput.cpp     | 45 ++++++++++++++++++++++
@@ -287,11 +285,10 @@ index a334e5c..4a51f3a 100644
 -- 
 2.4.3
 
-
-From 74b7ecc67054cd537536d821f50019a441112e0f Mon Sep 17 00:00:00 2001
+From 07ae60a0c2283861e0ff82c362e3815c33bd41a6 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sun, 31 May 2015 11:41:54 -0700
-Subject: [PATCH 04/17] gl: add lut loader and apply lut in output shader
+Subject: [PATCH 04/43] gl: add lut loader and apply lut in output shader
 
 ---
  system/shaders/output.glsl                         |   7 ++
@@ -548,11 +545,10 @@ index 6897a40..2bdc48e 100644
 -- 
 2.4.3
 
-
-From 0b4f5b5d1f11dc09775f1e459bf372d2a4ca7c2b Mon Sep 17 00:00:00 2001
+From b0dde3c3daa70fbe459af6b8b7806263116e64a3 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sun, 31 May 2015 22:34:30 -0700
-Subject: [PATCH 05/17] lut: use limited range, load icc from profile directory
+Subject: [PATCH 05/43] lut: use limited range, load icc from profile directory
 
 ---
  system/shaders/output.glsl                         |  2 +-
@@ -689,11 +685,10 @@ index e052c04..7525cd0 100644
 -- 
 2.4.3
 
-
-From aa04e10d36e266c0095d75a7a44f2d95b2cd901c Mon Sep 17 00:00:00 2001
+From 19b268b9c4c10d472a4463db7df8d24363df0639 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Mon, 1 Jun 2015 12:20:36 -0700
-Subject: [PATCH 06/17] gl: fix 3dlut color order
+Subject: [PATCH 06/43] gl: fix 3dlut color order
 
 ---
  xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp | 12 ++++++------
@@ -727,11 +722,10 @@ index 7525cd0..8f738e5 100644
 -- 
 2.4.3
 
-
-From f58b5911f241d9a926d60995637a6aecc94ed782 Mon Sep 17 00:00:00 2001
+From 874fbd2da303a5c628551e1ca9456223341246a8 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Mon, 1 Jun 2015 22:04:15 -0700
-Subject: [PATCH 07/17] gl: fix color channel order
+Subject: [PATCH 07/43] gl: fix color channel order
 
 ---
  system/shaders/output.glsl | 2 +-
@@ -753,11 +747,10 @@ index 9e3bdb2..31013c4 100644
 -- 
 2.4.3
 
-
-From 9471b76e9a2f23c11065728bd24eed694991153b Mon Sep 17 00:00:00 2001
+From 9cfde813069ecf7d7f7045922500cb256d348d61 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Mon, 1 Jun 2015 22:25:16 -0700
-Subject: [PATCH 08/17] gl: argyll device link is already video levels
+Subject: [PATCH 08/43] gl: argyll device link is already video levels
 
 ---
  xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp | 8 +++++---
@@ -792,11 +785,10 @@ index 8f738e5..7e2f2cc 100644
 -- 
 2.4.3
 
-
-From 52f1dd9c739587f0f7a0635b2ca52e4dacda3b38 Mon Sep 17 00:00:00 2001
+From 32b7a9ec29486cff1ba998eac16097863049f98d Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Tue, 2 Jun 2015 09:19:28 -0700
-Subject: [PATCH 09/17] lut: take out an unnecessary path component
+Subject: [PATCH 09/43] lut: take out an unnecessary path component
 
 ---
  xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp | 2 +-
@@ -818,11 +810,10 @@ index 7e2f2cc..785a3db 100644
 -- 
 2.4.3
 
-
-From 861d1dc9594b7e6001ca8f83d63925c2f519d9c8 Mon Sep 17 00:00:00 2001
+From 5e02d9d93813e9a9122bb2888e5bf8698b68d932 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Tue, 2 Jun 2015 16:41:20 -0700
-Subject: [PATCH 10/17] lut: todo comments
+Subject: [PATCH 10/43] lut: todo comments
 
 ---
  xbmc/cores/VideoRenderers/RenderFlags.h              | 10 +++++-----
@@ -885,11 +876,10 @@ index 785a3db..2eb5670 100644
 -- 
 2.4.3
 
-
-From 1f70a00c7c69228d84a1f3691f621d9576d68e8b Mon Sep 17 00:00:00 2001
+From a6dc0a940ed25e698b2638de391d834466211515 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Thu, 18 Jun 2015 21:12:35 -0700
-Subject: [PATCH 11/17] lut: reorganize to support different file formats
+Subject: [PATCH 11/43] lut: reorganize to support different file formats
 
 ---
  .../VideoRenderers/VideoShaders/LutLoader.cpp      | 66 ++++++++++++++--------
@@ -1013,11 +1003,10 @@ index 2eb5670..243598d 100644
 -- 
 2.4.3
 
-
-From e9c4da68b74792f12b0a9b6d30f13a23b9a408f7 Mon Sep 17 00:00:00 2001
+From 63a42e0ed7fa627b29319e13bdd791edf4433300 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Fri, 19 Jun 2015 17:20:42 -0700
-Subject: [PATCH 12/17] lut: start implementing 3DLUT file format
+Subject: [PATCH 12/43] lut: start implementing 3DLUT file format
 
 ---
  .../VideoRenderers/VideoShaders/LutLoader.cpp      | 38 ++++++++++++++++++++++
@@ -1075,11 +1064,10 @@ index 243598d..720bf64 100644
 -- 
 2.4.3
 
-
-From af3e5dc180de67339baace78ff2d1852e509540c Mon Sep 17 00:00:00 2001
+From eb03729bf2bdc578de96c9c8960b5bcbafee9426 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Fri, 19 Jun 2015 22:44:01 -0700
-Subject: [PATCH 13/17] lut: check 3DLUT file compatibility
+Subject: [PATCH 13/43] lut: check 3DLUT file compatibility
 
 ---
  .../VideoRenderers/VideoShaders/LutLoader.cpp      | 57 ++++++++++++++++------
@@ -1185,11 +1173,10 @@ index 720bf64..c95ed54 100644
 -- 
 2.4.3
 
-
-From 5b75032f67378540501973e23c7db902efa8b6df Mon Sep 17 00:00:00 2001
+From 1886f7e3dc27e3a17ca988cc8741f02b176be951 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sat, 20 Jun 2015 23:32:47 -0700
-Subject: [PATCH 14/17] lut: 3DLUT file loader
+Subject: [PATCH 14/43] lut: 3DLUT file loader
 
 ---
  .../VideoRenderers/VideoShaders/LutLoader.cpp      | 50 +++++++++++++++++++++-
@@ -1266,11 +1253,10 @@ index c95ed54..b7497cd 100644
 -- 
 2.4.3
 
-
-From 490b521350c36836a3e47fb54761a11a5d4fa3b1 Mon Sep 17 00:00:00 2001
+From d144395cace0a72623f9e6841985a135cd5dd0ec Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Tue, 2 Jun 2015 14:31:27 -0700
-Subject: [PATCH 15/17] x11: use the standard hint for disabling compositing
+Subject: [PATCH 15/43] x11: use the standard hint for disabling compositing
 
 ---
  xbmc/windowing/X11/WinSystemX11.cpp | 3 +++
@@ -1293,11 +1279,10 @@ index 16753ab..de8967f 100644
 -- 
 2.4.3
 
-
-From ece002d32731828cf31b8b317b6e47bb7e09f993 Mon Sep 17 00:00:00 2001
+From 203a842731c96453b59d76d2a96caf98f6e655a8 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sat, 27 Jun 2015 08:35:14 -0700
-Subject: [PATCH 16/17] settings: add color management settings
+Subject: [PATCH 16/43] settings: add color management settings
 
 ---
  .../resource.language.en_gb/resources/strings.po   |  57 +++++++-
@@ -1478,10 +1463,10 @@ index 4b41fc5..925cf39 100644
  
  std::string GLSLOutput::GetDefines()
 diff --git a/xbmc/guilib/GUIWindowManager.cpp b/xbmc/guilib/GUIWindowManager.cpp
-index 6030c4c..d5962f6 100644
+index aa6713d..fb56fd4 100644
 --- a/xbmc/guilib/GUIWindowManager.cpp
 +++ b/xbmc/guilib/GUIWindowManager.cpp
-@@ -80,6 +80,7 @@
+@@ -81,6 +81,7 @@
  #include "dialogs/GUIDialogTextViewer.h"
  #include "network/GUIDialogNetworkSetup.h"
  #include "dialogs/GUIDialogMediaSource.h"
@@ -1489,7 +1474,7 @@ index 6030c4c..d5962f6 100644
  #include "video/dialogs/GUIDialogVideoSettings.h"
  #include "video/dialogs/GUIDialogAudioSubtitleSettings.h"
  #include "video/dialogs/GUIDialogVideoBookmarks.h"
-@@ -215,6 +216,7 @@ void CGUIWindowManager::CreateWindows()
+@@ -217,6 +218,7 @@ void CGUIWindowManager::CreateWindows()
    Add(new CGUIDialogSlider);
    Add(new CGUIDialogMusicOSD);
    Add(new CGUIDialogVisualisationPresetList);
@@ -1497,7 +1482,7 @@ index 6030c4c..d5962f6 100644
    Add(new CGUIDialogVideoSettings);
    Add(new CGUIDialogAudioSubtitleSettings);
    Add(new CGUIDialogVideoBookmarks);
-@@ -328,6 +330,7 @@ bool CGUIWindowManager::DestroyWindows()
+@@ -332,6 +334,7 @@ bool CGUIWindowManager::DestroyWindows()
      Delete(WINDOW_DIALOG_LOCK_SETTINGS);
      Delete(WINDOW_DIALOG_NETWORK_SETUP);
      Delete(WINDOW_DIALOG_MEDIA_SOURCE);
@@ -1506,7 +1491,7 @@ index 6030c4c..d5962f6 100644
      Delete(WINDOW_DIALOG_AUDIO_OSD_SETTINGS);
      Delete(WINDOW_DIALOG_VIDEO_BOOKMARKS);
 diff --git a/xbmc/guilib/WindowIDs.h b/xbmc/guilib/WindowIDs.h
-index 2548e2b..bf5248b 100644
+index 145496e..b43bcf2 100644
 --- a/xbmc/guilib/WindowIDs.h
 +++ b/xbmc/guilib/WindowIDs.h
 @@ -104,6 +104,7 @@
@@ -1999,11 +1984,10 @@ index a9e5515..6372234 100644
 -- 
 2.4.3
 
-
-From a8fafa3af27ba9d615e3d76ef21b127b6942774a Mon Sep 17 00:00:00 2001
+From 8a267b769cd09d9f2b6a55c7573ba9df4096ae46 Mon Sep 17 00:00:00 2001
 From: Lauri Myllari <lauri.myllari@gmail.com>
 Date: Sun, 26 Jul 2015 11:44:21 -0700
-Subject: [PATCH 17/17] lut: obey cms mode and filename settings
+Subject: [PATCH 17/43] lut: obey cms mode and filename settings
 
 ---
  xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp | 20 ++++++++++++--------
@@ -2076,6 +2060,3897 @@ index b88d47b..cfc0d2c 100644
  int loadLUT(unsigned flags,
      float **CLUT,
      int *CLUTsize);
+-- 
+2.4.3
+
+From 50d47530b41de6cf2f182b9e7180f0767109c6fa Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Mon, 27 Jul 2015 22:02:32 -0700
+Subject: [PATCH 19/43] lut: fix 3dlut texture coordinates
+
+---
+ system/shaders/output.glsl | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/system/shaders/output.glsl b/system/shaders/output.glsl
+index 31013c4..9ace74c 100644
+--- a/system/shaders/output.glsl
++++ b/system/shaders/output.glsl
+@@ -12,7 +12,8 @@ void main()
+   vec4 rgb        = process();
+ 
+ #if (XBMC_3DLUT)
+-  rgb             = texture3D(m_CLUT, rgb.rgb);
++  // FIXME: can this be optimized?
++  rgb             = texture3D(m_CLUT, (rgb.rgb*255.0 + 0.5) / 256.0);
+ #endif
+ 
+ #if (XBMC_FULLRANGE)
+-- 
+2.4.3
+
+From c67a60d5e7973696ff72f729934a247bafe910a4 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Wed, 29 Jul 2015 23:33:04 -0700
+Subject: [PATCH 20/43] cms: start writing the CMS interface
+
+---
+ xbmc/ColorManager.h | 91 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 91 insertions(+)
+ create mode 100644 xbmc/ColorManager.h
+
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+new file mode 100644
+index 0000000..671a0bd
+--- /dev/null
++++ b/xbmc/ColorManager.h
+@@ -0,0 +1,91 @@
++#pragma once
++
++class CColorManager
++{
++public:
++  /*!
++   \brief Access the global color management system
++   \return the global instance
++   */
++  static CColorManager& Get();
++
++  /*!
++   \brief Get a 3D LUT for video color correction
++   \param primaries video primaries
++   \param token pointer to a color manager configuration token
++   \param clutsize pointer to CLUT resolution
++   \param clutdata pointer to CLUT data
++   \return true on success, false otherwise
++   */
++  // GetVideo3dLut
++
++
++  // CheckConfiguration
++
++private:
++  // private constructor, use the Get() method to access an instance
++  CColorManager();
++  virtual ~CColorManager();
++
++  /*! \brief Check .3dlut file validity
++   \param filename full path and filename
++   \return true if the file can be loaded, false otherwise
++   */
++  // Probe3dLut
++
++  /*! \brief Load a .3dlut file
++   \param filename full path and filename
++   \return ??
++   */
++  // Load3dLut
++
++
++#ifdef HAVE_LCMS2
++  // ProbeIccDisplayProfile
++
++  // ProbeIccDeviceLink (?)
++
++
++  /* \brief Load an ICC display profile
++   \param filename full path and filename
++   \return display profile (cmsHPROFILE)
++   */
++  // LoadIccDisplayProfile
++
++  /* \brief Load an ICC device link
++   \param filename full path and filename
++   \return device link (cmsHTRANSFORM)
++   */
++  // LoadIccDeviceLink (?)
++
++
++  // create a gamma curve
++
++
++  // create a source profile
++
++
++  /* \brief Create 3D LUT
++   Samples a cmsHTRANSFORM object to create a 3D LUT of specified resolution
++   \param transform cmsHTRANSFORM object to sample
++   \param resolution size of the 3D LUT to create
++   \param clut pointer to LUT data
++   */
++  // Create3dLut
++
++
++#endif // HAVE_LCMS2
++
++  // current configuration:
++  // video primaries
++  // clut size
++  // clut data
++  // token
++  // (compare the following to system settings to see if configuration is still valid)
++  // cms mode
++  // 3dlut file
++  // icc profile
++  // display parameters (gamma, input/output offset, primaries, whitepoint?, intent)
++}
++
++
+-- 
+2.4.3
+
+From 7447d70b40e2e4e25a0e5444683871a6ef325225 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 1 Aug 2015 14:22:20 -0700
+Subject: [PATCH 21/43] lut: hold the 3DLUT texture in renderer
+
+---
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp      | 54 +++++++++++++++++++++-
+ xbmc/cores/VideoRenderers/LinuxRendererGL.h        |  6 +++
+ .../VideoRenderers/VideoShaders/GLSLOutput.cpp     | 50 ++------------------
+ .../cores/VideoRenderers/VideoShaders/GLSLOutput.h |  2 +-
+ 4 files changed, 63 insertions(+), 49 deletions(-)
+
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 4f65d60..45e9ad6 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -50,6 +50,8 @@
+ #include "cores/dvdplayer/DVDCodecs/DVDCodecUtils.h"
+ #include "cores/FFmpeg.h"
+ 
++#include "VideoShaders/LutLoader.h"
++
+ extern "C" {
+ #include "libswscale/swscale.h"
+ }
+@@ -153,6 +155,10 @@ CLinuxRendererGL::CLinuxRendererGL()
+   m_nonLinStretch = false;
+   m_nonLinStretchGui = false;
+   m_pixelRatio = 0.0f;
++
++  m_tCLUTTex = 0;
++  m_CLUT = NULL;
++  m_CLUTsize = 0;
+ }
+ 
+ CLinuxRendererGL::~CLinuxRendererGL()
+@@ -295,6 +301,43 @@ bool CLinuxRendererGL::Configure(unsigned int width, unsigned int height, unsign
+   }
+ #endif
+ 
++  // load 3DLUT
++
++  if (g_Windowing.Use3DLUT() && (m_tCLUTTex == 0)) {
++    // load 3DLUT
++    // TODO: move to a helper class, provide video primaries for LUT selection
++    if ( loadLUT(m_iFlags, &m_CLUT, &m_CLUTsize) )
++    {
++      CLog::Log(LOGERROR, "Error loading the LUT");
++      return false;
++    }
++
++    // create 3DLUT texture
++    CLog::Log(LOGDEBUG, "LinuxRendererGL: creating 3DLUT");
++    glGenTextures(1, &m_tCLUTTex);
++    glActiveTexture(GL_TEXTURE4);
++    if ( m_tCLUTTex <= 0 )
++    {
++      CLog::Log(LOGERROR, "Error creating 3DLUT texture");
++      return false;
++    }
++
++    // bind and set 3DLUT texture parameters
++    glBindTexture(GL_TEXTURE_3D, m_tCLUTTex);
++    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
++    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
++
++    // load 3DLUT data
++    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_FLOAT, m_CLUT);
++    free(m_CLUT);
++    glActiveTexture(GL_TEXTURE0);
++  }
++
+   return true;
+ }
+ 
+@@ -834,7 +877,7 @@ void CLinuxRendererGL::UpdateVideoFilter()
+       }
+     }
+ 
+-    m_pVideoFilterShader = new ConvolutionFilterShader(m_scalingMethod, m_nonLinStretch, new GLSLOutput(3, m_iFlags));
++    m_pVideoFilterShader = new ConvolutionFilterShader(m_scalingMethod, m_nonLinStretch, new GLSLOutput(m_tCLUTTex, 3, m_iFlags));
+     if (!m_pVideoFilterShader->CompileAndLink())
+     {
+       CLog::Log(LOGERROR, "GL: Error compiling and linking video filter shader");
+@@ -902,7 +945,7 @@ void CLinuxRendererGL::LoadShaders(int field)
+         // if single pass, create GLSLOutput helper and pass it to YUV2RGB shader
+         m_pYUVShader = new YUV2RGBProgressiveShader(m_textureTarget==GL_TEXTURE_RECTANGLE_ARB, m_iFlags, m_format,
+                                                     m_nonLinStretch && m_renderQuality == RQ_SINGLEPASS,
+-                                                    (m_renderQuality == RQ_SINGLEPASS) ? new GLSLOutput(3, m_iFlags) : NULL);
++                                                    (m_renderQuality == RQ_SINGLEPASS) ? new GLSLOutput(m_tCLUTTex, 3, m_iFlags) : NULL);
+ 
+         CLog::Log(LOGNOTICE, "GL: Selecting Single Pass YUV 2 RGB shader");
+ 
+@@ -1017,6 +1060,13 @@ void CLinuxRendererGL::UnInit()
+     DeleteTexture(i);
+   }
+ 
++  if (m_tCLUTTex)
++  {
++    CLog::Log(LOGDEBUG, "LinuxRendererGL: deleting 3DLUT");
++    glDeleteTextures(1, &m_tCLUTTex);
++    m_tCLUTTex = 0;
++  }
++
+   // cleanup framebuffer object if it was in use
+   m_fbo.fbo.Cleanup();
+   m_bValidated = false;
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.h b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+index 249b82d..8de3195 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.h
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+@@ -281,6 +281,12 @@ protected:
+   bool  m_nonLinStretch;
+   bool  m_nonLinStretchGui;
+   float m_pixelRatio;
++
++  // color management
++  GLuint    m_tCLUTTex;
++  float    *m_CLUT;
++  int       m_CLUTsize;
++
+ };
+ 
+ 
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
+index 925cf39..6627855 100644
+--- a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
++++ b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
+@@ -29,21 +29,20 @@
+ #endif
+ 
+ #include "dither.h"
+-#include "LutLoader.h"
+ 
+ using namespace Shaders;
+ 
+-GLSLOutput::GLSLOutput(int texunit, unsigned videoflags)
++GLSLOutput::GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags)
+ {
+   // set member variable initial values
+-  m_1stTexUnit = texunit;
++  m_1stTexUnit = freeTexUnit;
+   m_uDither = m_1stTexUnit+0;
+   m_uCLUT = m_1stTexUnit+1;
+   m_flags = videoflags;
+ 
+   //   textures
+   m_tDitherTex  = 0;
+-  m_tCLUTTex  = 0;
++  m_tCLUTTex  = clutTex;
+ 
+   //   shader attribute handles
+   m_hDither      = -1;
+@@ -54,7 +53,7 @@ GLSLOutput::GLSLOutput(int texunit, unsigned videoflags)
+   m_dither = g_Windowing.UseDithering();
+   m_ditherDepth = g_Windowing.DitherDepth();
+   m_fullRange = !g_Windowing.UseLimitedColor();
+-  m_3DLUT = g_Windowing.Use3DLUT();
++  m_3DLUT = g_Windowing.Use3DLUT() && (clutTex > 0);
+ }
+ 
+ std::string GLSLOutput::GetDefines()
+@@ -68,9 +67,6 @@ std::string GLSLOutput::GetDefines()
+ 
+ void GLSLOutput::OnCompiledAndLinked(GLuint programHandle)
+ {
+-  float *CLUT;
+-  int CLUTsize;
+-
+   FreeTextures();
+ 
+   // get uniform locations
+@@ -109,39 +105,6 @@ void GLSLOutput::OnCompiledAndLinked(GLuint programHandle)
+     glTexImage2D(GL_TEXTURE_2D, 0, GL_R16, dither_size, dither_size, 0, GL_RED, GL_UNSIGNED_SHORT, dither_matrix);
+   }
+ 
+-  if (m_3DLUT) {
+-    // load 3DLUT
+-    // TODO: move to a helper class, provide video primaries for LUT selection
+-    if ( loadLUT(m_flags, &CLUT, &CLUTsize) )
+-    {
+-      CLog::Log(LOGERROR, "Error loading the LUT");
+-      return;
+-    }
+-
+-    // create 3DLUT texture
+-    glGenTextures(1, &m_tCLUTTex);
+-    glActiveTexture(GL_TEXTURE0 + m_uCLUT);
+-    if ( m_tCLUTTex <= 0 )
+-    {
+-      CLog::Log(LOGERROR, "Error creating 3DLUT texture");
+-      return;
+-    }
+-
+-    // bind and set 3DLUT texture parameters
+-    glBindTexture(GL_TEXTURE_3D, m_tCLUTTex);
+-    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+-    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+-
+-    // load 3DLUT data
+-    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, CLUTsize, CLUTsize, CLUTsize, 0, GL_RGB, GL_FLOAT, CLUT);
+-    free(CLUT);
+-  }
+-
+   glActiveTexture(GL_TEXTURE0);
+ 
+   VerifyGLState();
+@@ -211,10 +174,5 @@ void GLSLOutput::FreeTextures()
+     glDeleteTextures(1, &m_tDitherTex);
+     m_tDitherTex = 0;
+   }
+-  if (m_tCLUTTex)
+-  {
+-    glDeleteTextures(1, &m_tCLUTTex);
+-    m_tCLUTTex = 0;
+-  }
+ }
+ 
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h
+index 4a51f3a..f604048 100644
+--- a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h
++++ b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h
+@@ -33,7 +33,7 @@ namespace Shaders {
+   {
+   public:
+     // take the 1st available texture unit as a parameter
+-    GLSLOutput(int texunit, unsigned videoflags);
++    GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags);
+     std::string GetDefines();
+     void OnCompiledAndLinked(GLuint programHandle);
+     bool OnEnabled();
+-- 
+2.4.3
+
+From d974096b7d4b585e0437fa892263e19c69b0df32 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 1 Aug 2015 14:37:10 -0700
+Subject: [PATCH 22/43] gl: move 3DLUT loading into helper methods
+
+---
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp | 96 +++++++++++++++------------
+ xbmc/cores/VideoRenderers/LinuxRendererGL.h   |  2 +
+ 2 files changed, 57 insertions(+), 41 deletions(-)
+
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 45e9ad6..3a52ed2 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -302,41 +302,8 @@ bool CLinuxRendererGL::Configure(unsigned int width, unsigned int height, unsign
+ #endif
+ 
+   // load 3DLUT
+-
+-  if (g_Windowing.Use3DLUT() && (m_tCLUTTex == 0)) {
+-    // load 3DLUT
+-    // TODO: move to a helper class, provide video primaries for LUT selection
+-    if ( loadLUT(m_iFlags, &m_CLUT, &m_CLUTsize) )
+-    {
+-      CLog::Log(LOGERROR, "Error loading the LUT");
+-      return false;
+-    }
+-
+-    // create 3DLUT texture
+-    CLog::Log(LOGDEBUG, "LinuxRendererGL: creating 3DLUT");
+-    glGenTextures(1, &m_tCLUTTex);
+-    glActiveTexture(GL_TEXTURE4);
+-    if ( m_tCLUTTex <= 0 )
+-    {
+-      CLog::Log(LOGERROR, "Error creating 3DLUT texture");
+-      return false;
+-    }
+-
+-    // bind and set 3DLUT texture parameters
+-    glBindTexture(GL_TEXTURE_3D, m_tCLUTTex);
+-    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+-    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+-
+-    // load 3DLUT data
+-    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_FLOAT, m_CLUT);
+-    free(m_CLUT);
+-    glActiveTexture(GL_TEXTURE0);
+-  }
++  if (!LoadCLUT())
++    return false;
+ 
+   return true;
+ }
+@@ -1060,12 +1027,7 @@ void CLinuxRendererGL::UnInit()
+     DeleteTexture(i);
+   }
+ 
+-  if (m_tCLUTTex)
+-  {
+-    CLog::Log(LOGDEBUG, "LinuxRendererGL: deleting 3DLUT");
+-    glDeleteTextures(1, &m_tCLUTTex);
+-    m_tCLUTTex = 0;
+-  }
++  DeleteCLUT();
+ 
+   // cleanup framebuffer object if it was in use
+   m_fbo.fbo.Cleanup();
+@@ -2977,4 +2939,56 @@ CRenderInfo CLinuxRendererGL::GetRenderInfo()
+   return info;
+ }
+ 
++
++// Color management helpers
++
++bool CLinuxRendererGL::LoadCLUT()
++{
++  if (g_Windowing.Use3DLUT() && (m_tCLUTTex == 0)) {
++    // load 3DLUT
++    // TODO: move to a helper class, provide video primaries for LUT selection
++    if ( loadLUT(m_iFlags, &m_CLUT, &m_CLUTsize) )
++    {
++      CLog::Log(LOGERROR, "Error loading the LUT");
++      return false;
++    }
++
++    // create 3DLUT texture
++    CLog::Log(LOGDEBUG, "LinuxRendererGL: creating 3DLUT");
++    glGenTextures(1, &m_tCLUTTex);
++    glActiveTexture(GL_TEXTURE4);
++    if ( m_tCLUTTex <= 0 )
++    {
++      CLog::Log(LOGERROR, "Error creating 3DLUT texture");
++      return false;
++    }
++
++    // bind and set 3DLUT texture parameters
++    glBindTexture(GL_TEXTURE_3D, m_tCLUTTex);
++    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
++    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
++    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
++
++    // load 3DLUT data
++    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_FLOAT, m_CLUT);
++    free(m_CLUT);
++    glActiveTexture(GL_TEXTURE0);
++  }
++  return true;
++}
++
++void CLinuxRendererGL::DeleteCLUT()
++{
++  if (m_tCLUTTex)
++  {
++    CLog::Log(LOGDEBUG, "LinuxRendererGL: deleting 3DLUT");
++    glDeleteTextures(1, &m_tCLUTTex);
++    m_tCLUTTex = 0;
++  }
++}
++
+ #endif
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.h b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+index 8de3195..c0aa931 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.h
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+@@ -287,6 +287,8 @@ protected:
+   float    *m_CLUT;
+   int       m_CLUTsize;
+ 
++  bool LoadCLUT();
++  void DeleteCLUT();
+ };
+ 
+ 
+-- 
+2.4.3
+
+From ffe6f9505d67521ed759611f574964e5f64c2cb9 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 1 Aug 2015 18:10:03 -0700
+Subject: [PATCH 23/43] cms: 3dlut loader implementation
+
+---
+ xbmc/ColorManager.cpp | 209 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ xbmc/ColorManager.h   |  57 +++++++++-----
+ 2 files changed, 248 insertions(+), 18 deletions(-)
+ create mode 100644 xbmc/ColorManager.cpp
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+new file mode 100644
+index 0000000..4a9b020
+--- /dev/null
++++ b/xbmc/ColorManager.cpp
+@@ -0,0 +1,209 @@
++#include <math.h>
++#include <string>
++
++#include "ColorManager.h"
++#include "filesystem/File.h"
++#include "settings/Settings.h"
++#include "utils/log.h"
++
++using namespace XFILE;
++
++CColorManager &CColorManager::Get()
++{
++  static CColorManager s_colorManager;
++  return s_colorManager;
++}
++
++CColorManager::CColorManager()
++{
++  curVideoPrimaries = 0;
++  curClutSize = 0;
++  curCmsToken = 0;
++  curCmsMode = 0;
++  cur3dlutFile = "";
++  curIccProfile = "";
++}
++
++CColorManager::~CColorManager()
++{
++}
++
++bool CColorManager::IsEnabled()
++{
++  //TODO: check that the configuration is valid here (files exist etc)
++
++  return CSettings::Get().GetInt("videoscreen.colormanagement") != CMS_MODE_OFF;
++}
++
++bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, float **clutData)
++{
++  switch (CSettings::Get().GetInt("videoscreen.colormanagement"))
++  {
++  case CMS_MODE_3DLUT:
++    cur3dlutFile = CSettings::Get().GetString("videoscreen.cms3dlut");
++    if (!Load3dLut(cur3dlutFile, clutData, clutSize))
++      return false;
++    // set current state
++    curVideoPrimaries = primaries;
++    curClutSize = *clutSize;
++    *cmsToken = ++curCmsToken;
++    curCmsMode = CMS_MODE_3DLUT;
++    return true;
++
++  case CMS_MODE_PROFILE:
++
++
++  case CMS_MODE_OFF:
++  default:
++    return false;
++  }
++}
++
++bool CColorManager::CheckConfiguration(int cmsToken)
++{
++  if (cmsToken != curCmsToken)
++    return false;
++  if (curCmsMode != CSettings::Get().GetInt("videoscreen.colormanagement"))
++    return false;   // CMS mode has changed
++  switch (curCmsMode)
++  {
++  case CMS_MODE_3DLUT:
++    if (cur3dlutFile != CSettings::Get().GetString("videoscreen.cms3dlut"))
++      return false; // different 3dlut file selected
++    break;
++  case CMS_MODE_PROFILE:
++    if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
++      return false; // different ICC profile selected
++    // TODO: check other parameters
++    break;
++  default:
++    CLog::Log(LOGERROR, "%s: unexpected CMS mode: %d", __FUNCTION__, curCmsMode);
++    return false;
++  }
++  return true;
++}
++
++
++
++// madvr 3dlut file format support
++struct H3DLUT
++{
++    char signature[4];         // file signature; must be: '3DLT'
++    uint32_t fileVersion;          // file format version number (currently "1")
++    char programName[32];      // name of the program that created the file
++    uint64_t programVersion;  // version number of the program that created the file
++    uint32_t inputBitDepth[3];     // input bit depth per component (Y,Cb,Cr or R,G,B)
++    uint32_t inputColorEncoding;   // input color encoding standard
++    uint32_t outputBitDepth;       // output bit depth for all components (valid values are 8, 16 and 32)
++    uint32_t outputColorEncoding;  // output color encoding standard
++    uint32_t parametersFileOffset; // number of bytes between the beginning of the file and array parametersData
++    uint32_t parametersSize;       // size in bytes of the array parametersData
++    uint32_t lutFileOffset;        // number of bytes between the beginning of the file and array lutData
++    uint32_t lutCompressionMethod; // type of compression used if any (0 = none, ...)
++    uint32_t lutCompressedSize;    // size in bytes of the array lutData inside the file, whether compressed or not
++    uint32_t lutUncompressedSize;  // true size in bytes of the array lutData when in memory for usage (outside the file)
++    // This header is followed by the char array 'parametersData', of length 'parametersSize',
++    // and by the array 'lutDataxx', of length 'lutCompressedSize'.
++};
++
++bool CColorManager::Probe3dLut(const std::string filename)
++{
++    struct H3DLUT header;
++    CFile lutFile;
++
++    if (!lutFile.Open(filename))
++    {
++        CLog::Log(LOGERROR, "%s: Could not open 3DLUT file: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    if (lutFile.Read(&header, sizeof(header)) < sizeof(header))
++    {
++        CLog::Log(LOGERROR, "%s: Could not read 3DLUT header: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    if ( !(header.signature[0]=='3'
++                && header.signature[1]=='D'
++                && header.signature[2]=='L'
++                && header.signature[3]=='T') )
++    {
++        CLog::Log(LOGERROR, "%s: Not a 3DLUT file: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    if ( header.fileVersion != 1
++            || header.lutCompressionMethod != 0
++            || header.inputColorEncoding != 0
++            || header.outputColorEncoding != 0 )
++    {
++        CLog::Log(LOGERROR, "%s: Unsupported 3DLUT file: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    lutFile.Close();
++    return true;
++}
++
++bool CColorManager::Load3dLut(const std::string filename, float **CLUT, int *CLUTsize)
++{
++    struct H3DLUT header;
++    CFile lutFile;
++
++    if (!lutFile.Open(filename))
++    {
++        CLog::Log(LOGERROR, "%s: Could not open 3DLUT file: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    if (lutFile.Read(&header, sizeof(header)) < sizeof(header))
++    {
++        CLog::Log(LOGERROR, "%s: Could not read 3DLUT header: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    int rSize = 1 << header.inputBitDepth[0];
++    int gSize = 1 << header.inputBitDepth[1];
++    int bSize = 1 << header.inputBitDepth[2];
++
++    if ( !((rSize == gSize) && (rSize == bSize)) )
++    {
++        CLog::Log(LOGERROR, "%s: Different channel resolutions unsupported: %s", __FUNCTION__, filename.c_str());
++        return false;
++    }
++
++    int lutsamples = rSize * gSize * bSize * 3;
++    *CLUTsize = rSize; // TODO: assumes cube
++    *CLUT = (float*)malloc(lutsamples * sizeof(float));
++
++    lutFile.Seek(header.lutFileOffset, SEEK_SET);
++
++    for (int rIndex=0; rIndex<rSize; rIndex++) {
++        for (int gIndex=0; gIndex<gSize; gIndex++) {
++            uint16_t input[bSize*3];
++            lutFile.Read(input, 3*bSize*sizeof(uint16_t));
++            int index = (rIndex + gIndex*rSize)*3;
++            for (int bIndex=0; bIndex<bSize; bIndex++) {
++                (*CLUT)[index+bIndex*rSize*gSize*3+0] = input[bIndex*3+2]/65535.0;
++                (*CLUT)[index+bIndex*rSize*gSize*3+1] = input[bIndex*3+1]/65535.0;
++                (*CLUT)[index+bIndex*rSize*gSize*3+2] = input[bIndex*3+0]/65535.0;
++            }
++        }
++    }
++
++    lutFile.Close();
++
++#if 1 // debug 3dLUT greyscale
++    for (int y=0; y<rSize; y+=1)
++    {
++      int index = 3*(y*rSize*rSize + y*rSize + y);
++      CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
++          (int)round(y * 255 / (rSize-1.0)), y,
++          (int)round(255*(*CLUT)[index+0]),
++          (int)round(255*(*CLUT)[index+1]),
++          (int)round(255*(*CLUT)[index+2]));
++    }
++#endif
++
++    return true;
++}
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index 671a0bd..b1f1094 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -1,5 +1,13 @@
+ #pragma once
+ 
++enum CMS_MODE
++{
++  CMS_MODE_OFF,
++  CMS_MODE_3DLUT,
++  CMS_MODE_PROFILE,
++  CMS_MODE_COUNT
++};
++
+ class CColorManager
+ {
+ public:
+@@ -10,17 +18,27 @@ public:
+   static CColorManager& Get();
+ 
+   /*!
++   \brief Check if user has requested color management
++   \return true on enabled, false otherwise
++   */
++  bool IsEnabled();
++
++  /*!
+    \brief Get a 3D LUT for video color correction
+-   \param primaries video primaries
+-   \param token pointer to a color manager configuration token
+-   \param clutsize pointer to CLUT resolution
+-   \param clutdata pointer to CLUT data
++   \param primaries video primaries (see CONF_FLAGS_COLPRI)
++   \param cmsToken pointer to a color manager configuration token
++   \param clutSize pointer to CLUT resolution
++   \param clutData pointer to CLUT data (caller to free memory afterwards)
+    \return true on success, false otherwise
+    */
+-  // GetVideo3dLut
++  bool GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, float **clutData);
+ 
+-
+-  // CheckConfiguration
++  /*!
++   \brief Check if a 3D LUT is still valid
++   \param cmsToken pointer to a color manager configuration token
++   \return true on valid, false if 3D LUT should be reloaded
++   */
++  bool CheckConfiguration(int cmsToken);
+ 
+ private:
+   // private constructor, use the Get() method to access an instance
+@@ -31,13 +49,15 @@ private:
+    \param filename full path and filename
+    \return true if the file can be loaded, false otherwise
+    */
+-  // Probe3dLut
++  bool Probe3dLut(const std::string filename);
+ 
+   /*! \brief Load a .3dlut file
+    \param filename full path and filename
+-   \return ??
++   \param clutSize pointer to CLUT resolution
++   \param clutData pointer to CLUT data
++   \return true on success, false otherwise
+    */
+-  // Load3dLut
++  bool Load3dLut(const std::string filename, float **clutData, int *clutSize);
+ 
+ 
+ #ifdef HAVE_LCMS2
+@@ -77,15 +97,16 @@ private:
+ #endif // HAVE_LCMS2
+ 
+   // current configuration:
+-  // video primaries
+-  // clut size
+-  // clut data
+-  // token
++  int curVideoPrimaries;
++  int curClutSize;
++  int curCmsToken;
+   // (compare the following to system settings to see if configuration is still valid)
+-  // cms mode
+-  // 3dlut file
+-  // icc profile
++  int curCmsMode;
++  std::string cur3dlutFile;
++  std::string curIccProfile;
+   // display parameters (gamma, input/output offset, primaries, whitepoint?, intent)
+-}
++
++ 
++};
+ 
+ 
+-- 
+2.4.3
+
+From 82946f87ebb15d14e734d78cb0fa03300e8a1d9c Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 1 Aug 2015 18:32:07 -0700
+Subject: [PATCH 24/43] gl: switch to ColorManager
+
+---
+ xbmc/Makefile.in                              | 1 +
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp | 9 +++++----
+ xbmc/cores/VideoRenderers/LinuxRendererGL.h   | 1 +
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/xbmc/Makefile.in b/xbmc/Makefile.in
+index daed651..4d2a84e 100644
+--- a/xbmc/Makefile.in
++++ b/xbmc/Makefile.in
+@@ -5,6 +5,7 @@ SRCS=Application.cpp \
+      Autorun.cpp \
+      AutoSwitch.cpp \
+      BackgroundInfoLoader.cpp \
++     ColorManager.cpp \
+      ContextMenuManager.cpp \
+      CompileInfo.cpp \
+      CueDocument.cpp \
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 3a52ed2..799f968 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -49,8 +49,7 @@
+ #include "cores/IPlayer.h"
+ #include "cores/dvdplayer/DVDCodecs/DVDCodecUtils.h"
+ #include "cores/FFmpeg.h"
+-
+-#include "VideoShaders/LutLoader.h"
++#include "ColorManager.h"
+ 
+ extern "C" {
+ #include "libswscale/swscale.h"
+@@ -159,6 +158,7 @@ CLinuxRendererGL::CLinuxRendererGL()
+   m_tCLUTTex = 0;
+   m_CLUT = NULL;
+   m_CLUTsize = 0;
++  m_cmsToken = -1;
+ }
+ 
+ CLinuxRendererGL::~CLinuxRendererGL()
+@@ -2944,10 +2944,11 @@ CRenderInfo CLinuxRendererGL::GetRenderInfo()
+ 
+ bool CLinuxRendererGL::LoadCLUT()
+ {
+-  if (g_Windowing.Use3DLUT() && (m_tCLUTTex == 0)) {
++  CColorManager &cms = CColorManager::Get();
++  if (cms.IsEnabled() && (m_tCLUTTex == 0)) {
+     // load 3DLUT
+     // TODO: move to a helper class, provide video primaries for LUT selection
+-    if ( loadLUT(m_iFlags, &m_CLUT, &m_CLUTsize) )
++    if ( !cms.GetVideo3dLut(m_iFlags, &m_cmsToken, &m_CLUTsize, &m_CLUT) )
+     {
+       CLog::Log(LOGERROR, "Error loading the LUT");
+       return false;
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.h b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+index c0aa931..c7ac835 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.h
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+@@ -286,6 +286,7 @@ protected:
+   GLuint    m_tCLUTTex;
+   float    *m_CLUT;
+   int       m_CLUTsize;
++  int       m_cmsToken;
+ 
+   bool LoadCLUT();
+   void DeleteCLUT();
+-- 
+2.4.3
+
+From b92899e89e2de5253c28c0bd19814a013b33d3be Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 1 Aug 2015 19:21:49 -0700
+Subject: [PATCH 25/43] gl: allow switching 3DLUT during playback
+
+---
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp      | 100 +++++++++++++--------
+ xbmc/cores/VideoRenderers/LinuxRendererGL.h        |   1 +
+ .../VideoRenderers/VideoShaders/GLSLOutput.cpp     |   7 +-
+ 3 files changed, 71 insertions(+), 37 deletions(-)
+
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 799f968..c81be52 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -159,6 +159,7 @@ CLinuxRendererGL::CLinuxRendererGL()
+   m_CLUT = NULL;
+   m_CLUTsize = 0;
+   m_cmsToken = -1;
++  m_cmsOn = false;
+ }
+ 
+ CLinuxRendererGL::~CLinuxRendererGL()
+@@ -302,8 +303,20 @@ bool CLinuxRendererGL::Configure(unsigned int width, unsigned int height, unsign
+ #endif
+ 
+   // load 3DLUT
+-  if (!LoadCLUT())
+-    return false;
++  CColorManager &cms = CColorManager::Get();
++  if (cms.IsEnabled())
++  {
++    if (!cms.CheckConfiguration(m_cmsToken))
++    {
++      if (!LoadCLUT())
++        return false;
++    }
++    m_cmsOn = true;
++  }
++  else
++  {
++    m_cmsOn = false;
++  }
+ 
+   return true;
+ }
+@@ -737,6 +750,8 @@ void CLinuxRendererGL::UpdateVideoFilter()
+   bool pixelRatioChanged    = (CDisplaySettings::Get().GetPixelRatio() > 1.001f || CDisplaySettings::Get().GetPixelRatio() < 0.999f) !=
+                               (m_pixelRatio > 1.001f || m_pixelRatio < 0.999f);
+   bool nonLinStretchChanged = false;
++  bool cmsChanged           = (m_cmsOn != CColorManager::Get().IsEnabled())
++                              || (m_cmsOn && !CColorManager::Get().CheckConfiguration(m_cmsToken));
+   if (m_nonLinStretchGui != CDisplaySettings::Get().IsNonLinearStretched() || pixelRatioChanged)
+   {
+     m_nonLinStretchGui   = CDisplaySettings::Get().IsNonLinearStretched();
+@@ -756,7 +771,7 @@ void CLinuxRendererGL::UpdateVideoFilter()
+     }
+   }
+ 
+-  if (m_scalingMethodGui == CMediaSettings::Get().GetCurrentVideoSettings().m_ScalingMethod && !nonLinStretchChanged)
++  if (m_scalingMethodGui == CMediaSettings::Get().GetCurrentVideoSettings().m_ScalingMethod && !nonLinStretchChanged && !cmsChanged)
+     return;
+   else
+     m_reloadShaders = 1;
+@@ -766,6 +781,22 @@ void CLinuxRendererGL::UpdateVideoFilter()
+   if (m_nonLinStretch || nonLinStretchChanged)
+     m_reloadShaders = 1;
+ 
++  if (cmsChanged)
++  {
++    if (CColorManager::Get().IsEnabled())
++    {
++      if (!CColorManager::Get().CheckConfiguration(m_cmsToken))
++      {
++        LoadCLUT();
++      }
++      m_cmsOn = true;
++    }
++    else
++    {
++      m_cmsOn = false;
++    }
++  }
++
+   m_scalingMethodGui = CMediaSettings::Get().GetCurrentVideoSettings().m_ScalingMethod;
+   m_scalingMethod    = m_scalingMethodGui;
+ 
+@@ -2944,41 +2975,40 @@ CRenderInfo CLinuxRendererGL::GetRenderInfo()
+ 
+ bool CLinuxRendererGL::LoadCLUT()
+ {
+-  CColorManager &cms = CColorManager::Get();
+-  if (cms.IsEnabled() && (m_tCLUTTex == 0)) {
+-    // load 3DLUT
+-    // TODO: move to a helper class, provide video primaries for LUT selection
+-    if ( !cms.GetVideo3dLut(m_iFlags, &m_cmsToken, &m_CLUTsize, &m_CLUT) )
+-    {
+-      CLog::Log(LOGERROR, "Error loading the LUT");
+-      return false;
+-    }
++  DeleteCLUT();
+ 
+-    // create 3DLUT texture
+-    CLog::Log(LOGDEBUG, "LinuxRendererGL: creating 3DLUT");
+-    glGenTextures(1, &m_tCLUTTex);
+-    glActiveTexture(GL_TEXTURE4);
+-    if ( m_tCLUTTex <= 0 )
+-    {
+-      CLog::Log(LOGERROR, "Error creating 3DLUT texture");
+-      return false;
+-    }
++  CColorManager &cms = CColorManager::Get();
++  // load 3DLUT
++  if ( !cms.GetVideo3dLut(m_iFlags, &m_cmsToken, &m_CLUTsize, &m_CLUT) )
++  {
++    CLog::Log(LOGERROR, "Error loading the LUT");
++    return false;
++  }
+ 
+-    // bind and set 3DLUT texture parameters
+-    glBindTexture(GL_TEXTURE_3D, m_tCLUTTex);
+-    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+-    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+-    glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+-
+-    // load 3DLUT data
+-    glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_FLOAT, m_CLUT);
+-    free(m_CLUT);
+-    glActiveTexture(GL_TEXTURE0);
++  // create 3DLUT texture
++  CLog::Log(LOGDEBUG, "LinuxRendererGL: creating 3DLUT");
++  glGenTextures(1, &m_tCLUTTex);
++  glActiveTexture(GL_TEXTURE4);
++  if ( m_tCLUTTex <= 0 )
++  {
++    CLog::Log(LOGERROR, "Error creating 3DLUT texture");
++    return false;
+   }
++
++  // bind and set 3DLUT texture parameters
++  glBindTexture(GL_TEXTURE_3D, m_tCLUTTex);
++  glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
++  glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
++  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
++  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
++  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
++  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
++  glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
++
++  // load 3DLUT data
++  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_FLOAT, m_CLUT);
++  free(m_CLUT);
++  glActiveTexture(GL_TEXTURE0);
+   return true;
+ }
+ 
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.h b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+index c7ac835..d8ca57d 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.h
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+@@ -287,6 +287,7 @@ protected:
+   float    *m_CLUT;
+   int       m_CLUTsize;
+   int       m_cmsToken;
++  bool      m_cmsOn;
+ 
+   bool LoadCLUT();
+   void DeleteCLUT();
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
+index 6627855..b74ef1f 100644
+--- a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
++++ b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
+@@ -22,8 +22,9 @@
+ 
+ #include "system.h"
+ #include "GLSLOutput.h"
+-#include "windowing/WindowingFactory.h"
++#include "ColorManager.h"
+ #include "utils/log.h"
++#include "windowing/WindowingFactory.h"
+ #if defined(HAS_GL) || defined(HAS_GLES)
+ #include "utils/GLUtils.h"
+ #endif
+@@ -53,7 +54,9 @@ GLSLOutput::GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags)
+   m_dither = g_Windowing.UseDithering();
+   m_ditherDepth = g_Windowing.DitherDepth();
+   m_fullRange = !g_Windowing.UseLimitedColor();
+-  m_3DLUT = g_Windowing.Use3DLUT() && (clutTex > 0);
++  // make sure CMS is enabled - this allows us to keep the texture
++  // around to quickly switch between CMS on and off
++  m_3DLUT = CColorManager::Get().IsEnabled() && (clutTex > 0);
+ }
+ 
+ std::string GLSLOutput::GetDefines()
+-- 
+2.4.3
+
+From 3d52c17e550f358811cc448aa344493dbe3d8d6d Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Tue, 4 Aug 2015 21:12:56 -0700
+Subject: [PATCH 26/43] cms: switch 3DLUT to uint16 for performance/memory use
+
+---
+ xbmc/ColorManager.cpp                         | 18 +++++++++---------
+ xbmc/ColorManager.h                           |  4 ++--
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp |  2 +-
+ xbmc/cores/VideoRenderers/LinuxRendererGL.h   |  2 +-
+ 4 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 4a9b020..fb03b44 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -35,7 +35,7 @@ bool CColorManager::IsEnabled()
+   return CSettings::Get().GetInt("videoscreen.colormanagement") != CMS_MODE_OFF;
+ }
+ 
+-bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, float **clutData)
++bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, uint16_t **clutData)
+ {
+   switch (CSettings::Get().GetInt("videoscreen.colormanagement"))
+   {
+@@ -145,7 +145,7 @@ bool CColorManager::Probe3dLut(const std::string filename)
+     return true;
+ }
+ 
+-bool CColorManager::Load3dLut(const std::string filename, float **CLUT, int *CLUTsize)
++bool CColorManager::Load3dLut(const std::string filename, uint16_t **CLUT, int *CLUTsize)
+ {
+     struct H3DLUT header;
+     CFile lutFile;
+@@ -174,7 +174,7 @@ bool CColorManager::Load3dLut(const std::string filename, float **CLUT, int *CLU
+ 
+     int lutsamples = rSize * gSize * bSize * 3;
+     *CLUTsize = rSize; // TODO: assumes cube
+-    *CLUT = (float*)malloc(lutsamples * sizeof(float));
++    *CLUT = (uint16_t*)malloc(lutsamples * sizeof(uint16_t));
+ 
+     lutFile.Seek(header.lutFileOffset, SEEK_SET);
+ 
+@@ -184,9 +184,9 @@ bool CColorManager::Load3dLut(const std::string filename, float **CLUT, int *CLU
+             lutFile.Read(input, 3*bSize*sizeof(uint16_t));
+             int index = (rIndex + gIndex*rSize)*3;
+             for (int bIndex=0; bIndex<bSize; bIndex++) {
+-                (*CLUT)[index+bIndex*rSize*gSize*3+0] = input[bIndex*3+2]/65535.0;
+-                (*CLUT)[index+bIndex*rSize*gSize*3+1] = input[bIndex*3+1]/65535.0;
+-                (*CLUT)[index+bIndex*rSize*gSize*3+2] = input[bIndex*3+0]/65535.0;
++                (*CLUT)[index+bIndex*rSize*gSize*3+0] = input[bIndex*3+2];
++                (*CLUT)[index+bIndex*rSize*gSize*3+1] = input[bIndex*3+1];
++                (*CLUT)[index+bIndex*rSize*gSize*3+2] = input[bIndex*3+0];
+             }
+         }
+     }
+@@ -199,9 +199,9 @@ bool CColorManager::Load3dLut(const std::string filename, float **CLUT, int *CLU
+       int index = 3*(y*rSize*rSize + y*rSize + y);
+       CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
+           (int)round(y * 255 / (rSize-1.0)), y,
+-          (int)round(255*(*CLUT)[index+0]),
+-          (int)round(255*(*CLUT)[index+1]),
+-          (int)round(255*(*CLUT)[index+2]));
++          (int)round((*CLUT)[index+0]/256),
++          (int)round((*CLUT)[index+1]/256),
++          (int)round((*CLUT)[index+2]/256));
+     }
+ #endif
+ 
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index b1f1094..344d371 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -31,7 +31,7 @@ public:
+    \param clutData pointer to CLUT data (caller to free memory afterwards)
+    \return true on success, false otherwise
+    */
+-  bool GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, float **clutData);
++  bool GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, uint16_t **clutData);
+ 
+   /*!
+    \brief Check if a 3D LUT is still valid
+@@ -57,7 +57,7 @@ private:
+    \param clutData pointer to CLUT data
+    \return true on success, false otherwise
+    */
+-  bool Load3dLut(const std::string filename, float **clutData, int *clutSize);
++  bool Load3dLut(const std::string filename, uint16_t **clutData, int *clutSize);
+ 
+ 
+ #ifdef HAVE_LCMS2
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index c81be52..5639aa5 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -3006,7 +3006,7 @@ bool CLinuxRendererGL::LoadCLUT()
+   glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+ 
+   // load 3DLUT data
+-  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB32F, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_FLOAT, m_CLUT);
++  glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB16, m_CLUTsize, m_CLUTsize, m_CLUTsize, 0, GL_RGB, GL_UNSIGNED_SHORT, m_CLUT);
+   free(m_CLUT);
+   glActiveTexture(GL_TEXTURE0);
+   return true;
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.h b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+index d8ca57d..dbe2306 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.h
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.h
+@@ -284,7 +284,7 @@ protected:
+ 
+   // color management
+   GLuint    m_tCLUTTex;
+-  float    *m_CLUT;
++  uint16_t *m_CLUT;
+   int       m_CLUTsize;
+   int       m_cmsToken;
+   bool      m_cmsOn;
+-- 
+2.4.3
+
+From c754b94c7d18adbb5debfb3577f3b78bbad8b315 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Thu, 6 Aug 2015 09:30:18 -0700
+Subject: [PATCH 27/43] cms: start ICC profile loading interface
+
+---
+ xbmc/ColorManager.cpp | 11 +++++++++++
+ xbmc/ColorManager.h   | 26 +++++++++++++++++++++++---
+ 2 files changed, 34 insertions(+), 3 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index fb03b44..6871f07 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -207,3 +207,14 @@ bool CColorManager::Load3dLut(const std::string filename, uint16_t **CLUT, int *
+ 
+     return true;
+ }
++
++
++
++#if defined(HAVE_LCMS2)
++// ICC profile support
++
++
++
++
++
++#endif //defined(HAVE_LCMS2)
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index 344d371..caa4a2d 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -8,6 +8,25 @@ enum CMS_MODE
+   CMS_MODE_COUNT
+ };
+ 
++enum CMS_PRIMARIES
++{
++  CMS_PRIMARIES_AUTO,
++  CMS_PRIMARIES_BT709,    // HDTV
++  CMS_PRIMARIES_BT170M,   // SDTV
++  CMS_PRIMARIES_BT470M,   // NTSC (1953)
++  CMS_PRIMARIES_BT470BG,  // PAL/SECAM (1975)
++  CMS_PRIMARIES_240M,     // early HDTV
++  CMS_PRIMARIES_COUNT
++};
++
++enum CMS_TRC_TYPE
++{
++  CMS_TRC_BT1886,
++  CMS_TRC_INPUT_OFFSET,
++  CMS_TRC_OUTPUT_OFFSET,
++  CMS_TRC_COUNT
++};
++
+ class CColorManager
+ {
+ public:
+@@ -70,7 +89,7 @@ private:
+    \param filename full path and filename
+    \return display profile (cmsHPROFILE)
+    */
+-  // LoadIccDisplayProfile
++  cmsHPROFILE LoadIccDisplayProfile(const std::string filename);
+ 
+   /* \brief Load an ICC device link
+    \param filename full path and filename
+@@ -80,9 +99,10 @@ private:
+ 
+ 
+   // create a gamma curve
+-
++  cmsToneCurve* CreateToneCurve(CMS_TRC_TYPE gammaType, float gammaValue, cmsCIEXYZ blackPoint);
+ 
+   // create a source profile
++  cmsHPROFILE CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneCurve *gamma, int whitepoint);
+ 
+ 
+   /* \brief Create 3D LUT
+@@ -91,7 +111,7 @@ private:
+    \param resolution size of the 3D LUT to create
+    \param clut pointer to LUT data
+    */
+-  // Create3dLut
++  bool Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, int *clutSize);
+ 
+ 
+ #endif // HAVE_LCMS2
+-- 
+2.4.3
+
+From c7b9d65269bac50caa0df6f2deb03ac647064aa0 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 8 Aug 2015 11:34:49 -0700
+Subject: [PATCH 28/43] cms: implement ICC profile loading
+
+---
+ xbmc/ColorManager.cpp | 156 ++++++++++++++++++++++++++++++++++++++++++++++++--
+ xbmc/ColorManager.h   |   8 +++
+ 2 files changed, 159 insertions(+), 5 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 6871f07..8b089b1 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -1,3 +1,4 @@
++#include <boost/algorithm/clamp.hpp>
+ #include <math.h>
+ #include <string>
+ 
+@@ -7,6 +8,7 @@
+ #include "utils/log.h"
+ 
+ using namespace XFILE;
++namespace ba = boost::algorithm;
+ 
+ CColorManager &CColorManager::Get()
+ {
+@@ -43,20 +45,72 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+     cur3dlutFile = CSettings::Get().GetString("videoscreen.cms3dlut");
+     if (!Load3dLut(cur3dlutFile, clutData, clutSize))
+       return false;
+-    // set current state
+-    curVideoPrimaries = primaries;
+-    curClutSize = *clutSize;
+-    *cmsToken = ++curCmsToken;
+     curCmsMode = CMS_MODE_3DLUT;
+-    return true;
++    break;
+ 
+   case CMS_MODE_PROFILE:
++#if defined(HAVE_LCMS2)
++    bool changed = false;
++    // check if display profile is not loaded, or has changed
++    if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
++    {
++      changed = true;
++      // free old profile if there is one
++      if (m_hProfile)
++        cmsCloseProfile(m_hProfile);
++      // load profile
++      m_hProfile = LoadIccDisplayProfile(CSettings::Get().GetString("videoscreen.displayprofile"));
++      if (!m_hProfile)
++        return false;
++      // detect blackpoint
++      if (cmsDetectBlackPoint(&m_blackPoint, m_hProfile, INTENT_PERCEPTUAL, 0))
++      {
++        CLog::Log(LOGDEBUG, "black point: %f\n", m_blackPoint.Y);
++      }
++    }
++    // create gamma curve
++    cmsToneCurve* gammaCurve;
++    // TODO: gamma paremeters
++    gammaCurve =
++      CreateToneCurve(CMS_TRC_BT1886, 2.4, m_blackPoint);
++
++    // create source profile
++    // TODO: primaries and whitepoint selection
++    cmsHPROFILE sourceProfile =
++      CreateSourceProfile(CMS_PRIMARIES_BT709, gammaCurve, 0);
++
++    // link profiles
++    // TODO: intent selection, switch output to 16 bits?
++    cmsHTRANSFORM deviceLink =
++      cmsCreateTransform(sourceProfile, TYPE_RGB_FLT,
++                          m_hProfile, TYPE_RGB_FLT,
++                          INTENT_PERCEPTUAL, 0);
++
++    // sample the transformation
++    *clutSize = 65;
++    Create3dLut(deviceLink, clutData, clutSize);
++
++    // free gamma curve, source profile and transformation
++    cmsDeleteTransform(deviceLink);
++    cmsCloseProfile(sourceProfile);
++    cmsFreeToneCurve(gammaCurves[0]);
+ 
++    curCmsMode = CMS_MODE_3DLUT;
++    break;
++#else   //defined(HAVE_LCMS2)
++    return false;
++#endif  //defined(HAVE_LCMS2)
+ 
+   case CMS_MODE_OFF:
+   default:
+     return false;
+   }
++
++  // set current state
++  curVideoPrimaries = primaries;
++  curClutSize = *clutSize;
++  *cmsToken = ++curCmsToken;
++  return true;
+ }
+ 
+ bool CColorManager::CheckConfiguration(int cmsToken)
+@@ -213,8 +267,100 @@ bool CColorManager::Load3dLut(const std::string filename, uint16_t **CLUT, int *
+ #if defined(HAVE_LCMS2)
+ // ICC profile support
+ 
++cmsHPROFILE CColorManager::LoadIccDisplayProfile(const std::string filename)
++{
++    cmsHPROFILE hProfile;
++
++    hProfile = cmsOpenProfileFromFile(filename.c_str(), "r");
++    if (!hProfile)
++    {
++      CLog::Log(LOGERROR, "ICC profile not found\n");
++    }
++    return hProfile;
++}
++
+ 
++cmsToneCurve* CColorManager::CreateToneCurve(CMS_TRC_TYPE gammaType, float gammaValue, cmsCIEXYZ blackPoint)
++{
++  // FIXME: REWRITE
++  double bkipow = pow(blackPoint.Y, 1.0/gammaValue);
++  double wtipow = 1.0;
++  double lift = bkipow / (wtipow - bkipow);
++  double gain = pow(wtipow - bkipow, gammaValue);
++
++  const int tablesize = 1024;
++  cmsFloat32Number gammatable[tablesize];
++  for (int i=0; i<tablesize; i++)
++  {
++    gammatable[i] = gain * pow(((double) i)/(tablesize-1) + lift, gamma);
++  }
++
++  cmsToneCurve* Gamma = cmsBuildTabulatedToneCurveFloat(0,
++      tablesize,
++      gammatable);
++  return Gamma;
++}
+ 
+ 
++cmsHPROFILE CColorManager::CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneCurve *gamma, int whitepoint)
++{
++  cmsToneCurve*  Gamma3[3];
++  cmsHPROFILE hProfile;
++  cmsCIExyY whiteCoords = { 0.3127, 0.3290, 1.0 };
++  cmsCIExyYTRIPLE primaryCoords = {
++      0.640, 0.330, 1.0,
++      0.300, 0.600, 1.0,
++      0.150, 0.060, 1.0 };
++
++  Gamma3[0] = Gamma3[1] = Gamma3[2] = gamma;
++  hProfile = cmsCreateRGBProfile(&whiteCoords,
++      &primaryCoords,
++      Gamma3);
++  return hProfile;
++}
++
++
++bool CColorManager::Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, int *clutSize)
++{
++    const int lutResolution = *clutSize;
++    int lutsamples = lutResolution * lutResolution * lutResolution * 3;
++    *CLUT = (uint16_t*)malloc(lutsamples * sizeof(uint16_t));
++
++    cmsFloat32Number input[3*lutResolution];
++    cmsFloat32Number output[3*lutResolution];
++
++#define videoToPC(x) ( ba::clamp((((x)*255)-16)/219,0,1) )
++#define PCToVideo(x) ( (((x)*219)+16)/255 )
++// #define videoToPC(x) ( x )
++// #define PCToVideo(x) ( x )
++    for (int bIndex=0; bIndex<lutResolution; bIndex++) {
++      for (int gIndex=0; gIndex<lutResolution; gIndex++) {
++        for (int rIndex=0; rIndex<lutResolution; rIndex++) {
++          input[rIndex*3+0] = videoToPC(rIndex / (lutResolution-1.0));
++          input[rIndex*3+1] = videoToPC(gIndex / (lutResolution-1.0));
++          input[rIndex*3+2] = videoToPC(bIndex / (lutResolution-1.0));
++        }
++        int index = (bIndex*lutResolution*lutResolution + gIndex*lutResolution)*3;
++        cmsDoTransform(hTransform, input, output, lutResolution);
++        for (int i=0; i<lutResolution*3; i++) {
++          (*CLUT)[index+i] = PCToVideo(output[i]) * 65535;
++        }
++      }
++    }
++
++#if 1 // debug 3dLUT greyscale
++    for (int y=0; y<lutResolution; y+=1)
++    {
++      int index = 3*(y*lutResolution*lutResolution + y*lutResolution + y);
++      CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
++          (int)round(y * 255 / (lutResolution-1.0)), y,
++          (int)round((*CLUT)[index+0]/256),
++          (int)round((*CLUT)[index+1]/256),
++          (int)round((*CLUT)[index+2]/256));
++    }
++#endif
++
++}
++
+ 
+ #endif //defined(HAVE_LCMS2)
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index caa4a2d..3cbee0e 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -1,5 +1,9 @@
+ #pragma once
+ 
++#if defined(HAVE_LCMS2)
++#include "lcms2.h"
++#endif
++
+ enum CMS_MODE
+ {
+   CMS_MODE_OFF,
+@@ -24,6 +28,7 @@ enum CMS_TRC_TYPE
+   CMS_TRC_BT1886,
+   CMS_TRC_INPUT_OFFSET,
+   CMS_TRC_OUTPUT_OFFSET,
++  CMS_TRC_ABSOLUTE,
+   CMS_TRC_COUNT
+ };
+ 
+@@ -113,6 +118,9 @@ private:
+    */
+   bool Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, int *clutSize);
+ 
++  // keep current display profile loaded here
++  cmsHPROFILE m_hProfile;
++  cmsCIEXYZ   m_blackPoint = { 0, 0, 0 };
+ 
+ #endif // HAVE_LCMS2
+ 
+-- 
+2.4.3
+
+From 9a9130b57bdbef6c0b0d8cb6d1dcc04e7e759429 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 8 Aug 2015 11:36:48 -0700
+Subject: [PATCH 29/43] lut: clean up the temporary LutLoader
+
+---
+ .../VideoRenderers/VideoShaders/LutLoader.cpp      | 293 ---------------------
+ xbmc/cores/VideoRenderers/VideoShaders/LutLoader.h |  14 -
+ xbmc/cores/VideoRenderers/VideoShaders/Makefile    |   2 +-
+ 3 files changed, 1 insertion(+), 308 deletions(-)
+ delete mode 100644 xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp
+ delete mode 100644 xbmc/cores/VideoRenderers/VideoShaders/LutLoader.h
+
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp b/xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp
+deleted file mode 100644
+index 81e3c4e..0000000
+--- a/xbmc/cores/VideoRenderers/VideoShaders/LutLoader.cpp
++++ /dev/null
+@@ -1,293 +0,0 @@
+-#include "config.h"
+-#include "utils/log.h"
+-#include "filesystem/File.h"
+-#include "settings/Settings.h"
+-
+-#include <boost/algorithm/clamp.hpp>
+-#include <math.h>
+-#include <stdlib.h>
+-#include <string.h>
+-
+-#include "LutLoader.h"
+-
+-using namespace XFILE;
+-
+-#if defined(HAVE_LCMS2)
+-#include "lcms2.h"
+-#include "lcms2_plugin.h"
+-
+-namespace ba = boost::algorithm;
+-
+-// FIXME: rename to source profile; allow choosing wp, primaries and gamma
+-cmsHPROFILE gammaprofile(cmsCIEXYZ blackpoint, float brightness, float contrast)
+-{
+-  float gamma = 2.4;
+-  double bkipow = brightness * pow(blackpoint.Y, 1.0/gamma);
+-  double wtipow = contrast * 1.0;
+-  double lift = bkipow / (wtipow - bkipow);
+-  double gain = pow(wtipow - bkipow, gamma);
+-
+-  const int tablesize = 1024;
+-  cmsFloat32Number gammatable[tablesize];
+-  for (int i=0; i<tablesize; i++)
+-  {
+-    gammatable[i] = gain * pow(((double) i)/(tablesize-1) + lift, gamma);
+-  }
+-
+-  cmsToneCurve*  Gamma = cmsBuildTabulatedToneCurveFloat(0,
+-      tablesize,
+-      gammatable);
+-  cmsToneCurve*  Gamma3[3];
+-  cmsHPROFILE hProfile;
+-  cmsCIExyY whitepoint = { 0.3127, 0.3290, 1.0 };
+-  cmsCIExyYTRIPLE primaries = {
+-      0.640, 0.330, 1.0,
+-      0.300, 0.600, 1.0,
+-      0.150, 0.060, 1.0 };
+-
+-  Gamma3[0] = Gamma3[1] = Gamma3[2] = Gamma;
+-  hProfile = cmsCreateRGBProfile(&whitepoint,
+-      &primaries,
+-      Gamma3);
+-  cmsFreeToneCurve(Gamma);
+-  return hProfile;
+-}
+-
+-bool loadICC(const std::string filename, float **CLUT, int *CLUTsize)
+-{
+-    cmsHPROFILE hProfile;
+-    cmsHTRANSFORM hTransform;
+-    int lutsamples;
+-
+-    // FIXME - device link filename based on colorspace in flags
+-    hProfile = cmsOpenProfileFromFile(
+-        filename.c_str(),
+-        "r");
+-    if (!hProfile)
+-    {
+-      CLog::Log(LOGERROR, "ICC profile not found\n");
+-      return false;
+-    }
+-
+-    if (cmsGetDeviceClass(hProfile) == cmsSigDisplayClass)
+-    {
+-      CLog::Log(LOGNOTICE, "got display profile: %s\n", filename.c_str());
+-      // check black point
+-      cmsCIEXYZ blackpoint = { 0, 0, 0};
+-      if (cmsDetectBlackPoint(&blackpoint, hProfile, INTENT_PERCEPTUAL, 0))
+-      {
+-        CLog::Log(LOGDEBUG, "black point: %f\n", blackpoint.Y);
+-      }
+-
+-      // create input profile (monitor to simulate)
+-      cmsHPROFILE inputprofile = gammaprofile(blackpoint, 1.0, 1.0);
+-
+-      // create the transform
+-      hTransform = cmsCreateTransform(inputprofile, TYPE_RGB_FLT,
+-          hProfile, TYPE_RGB_FLT,
+-          INTENT_PERCEPTUAL, 0);
+-      cmsCloseProfile(inputprofile);
+-    }
+-    else if (cmsGetDeviceClass(hProfile) == cmsSigLinkClass)
+-    {
+-      hTransform = cmsCreateMultiprofileTransform(&hProfile,
+-          1,
+-          TYPE_RGB_FLT,
+-          TYPE_RGB_FLT,
+-          INTENT_PERCEPTUAL,
+-          0);
+-    }
+-    else
+-    {
+-      CLog::Log(LOGERROR, "unsupported profile type\n");
+-      return false;
+-    }
+-
+-#define LUT_RESOLUTION 65
+-
+-    lutsamples = LUT_RESOLUTION * LUT_RESOLUTION * LUT_RESOLUTION * 3;
+-    *CLUTsize = LUT_RESOLUTION;
+-    *CLUT = (float*)malloc(lutsamples * sizeof(float));
+-
+-    cmsFloat32Number input[3*LUT_RESOLUTION];
+-    cmsFloat32Number output[3*LUT_RESOLUTION];
+-
+-// #define videoToPC(x) ( ba::clamp((((x)*255)-16)/219,0,1) )
+-// #define PCToVideo(x) ( (((x)*219)+16)/255 )
+-#define videoToPC(x) ( x )
+-#define PCToVideo(x) ( x )
+-    for (int bIndex=0; bIndex<LUT_RESOLUTION; bIndex++) {
+-      for (int gIndex=0; gIndex<LUT_RESOLUTION; gIndex++) {
+-        for (int rIndex=0; rIndex<LUT_RESOLUTION; rIndex++) {
+-          input[rIndex*3+0] = videoToPC(rIndex / (LUT_RESOLUTION-1.0));
+-          input[rIndex*3+1] = videoToPC(gIndex / (LUT_RESOLUTION-1.0));
+-          input[rIndex*3+2] = videoToPC(bIndex / (LUT_RESOLUTION-1.0));
+-        }
+-        int index = (bIndex*LUT_RESOLUTION*LUT_RESOLUTION + gIndex*LUT_RESOLUTION)*3;
+-        cmsDoTransform(hTransform, input, output, LUT_RESOLUTION);
+-        for (int i=0; i<LUT_RESOLUTION*3; i++) {
+-          (*CLUT)[index+i] = PCToVideo(output[i]);
+-        }
+-      }
+-    }
+-
+-#if 1 // debug 3dLUT greyscale
+-    for (int y=0; y<LUT_RESOLUTION; y+=1)
+-    {
+-      int index = 3*(y*LUT_RESOLUTION*LUT_RESOLUTION + y*LUT_RESOLUTION + y);
+-      CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
+-          (int)round(y * 255 / (LUT_RESOLUTION-1.0)), y,
+-          (int)round(255*(*CLUT)[index+0]),
+-          (int)round(255*(*CLUT)[index+1]),
+-          (int)round(255*(*CLUT)[index+2]));
+-    }
+-#endif
+-
+-    cmsCloseProfile(hProfile);
+-    return true;
+-}
+-
+-#else
+-
+-bool loadICC(const std::string filename, float **CLUT, int *CLUTsize)
+-{
+-    CLog::Log(LOGERROR, "No ICC profile support (requires lcms2)\n");
+-    return false;
+-}
+-#endif
+-
+-struct H3DLUT
+-{
+-    char signature[4];         // file signature; must be: '3DLT'
+-    uint32_t fileVersion;          // file format version number (currently "1")
+-    char programName[32];      // name of the program that created the file
+-    uint64_t programVersion;  // version number of the program that created the file
+-    uint32_t inputBitDepth[3];     // input bit depth per component (Y,Cb,Cr or R,G,B)
+-    uint32_t inputColorEncoding;   // input color encoding standard
+-    uint32_t outputBitDepth;       // output bit depth for all components (valid values are 8, 16 and 32)
+-    uint32_t outputColorEncoding;  // output color encoding standard
+-    uint32_t parametersFileOffset; // number of bytes between the beginning of the file and array parametersData
+-    uint32_t parametersSize;       // size in bytes of the array parametersData
+-    uint32_t lutFileOffset;        // number of bytes between the beginning of the file and array lutData
+-    uint32_t lutCompressionMethod; // type of compression used if any (0 = none, ...)
+-    uint32_t lutCompressedSize;    // size in bytes of the array lutData inside the file, whether compressed or not
+-    uint32_t lutUncompressedSize;  // true size in bytes of the array lutData when in memory for usage (outside the file)
+-    // This header is followed by the char array 'parametersData', of length 'parametersSize',
+-    // and by the array 'lutDataxx', of length 'lutCompressedSize'.
+-};
+-
+-bool load3DLUT(const std::string filename, float **CLUT, int *CLUTsize)
+-{
+-    struct H3DLUT header;
+-    CFile lutFile;
+-
+-    if (!lutFile.Open(filename))
+-    {
+-        CLog::Log(LOGERROR, "%s: Could not open 3DLUT file: %s", __FUNCTION__, filename.c_str());
+-        return false;
+-    }
+-
+-    if (lutFile.Read(&header, sizeof(header)) < sizeof(header))
+-    {
+-        CLog::Log(LOGERROR, "%s: Could not read 3DLUT header: %s", __FUNCTION__, filename.c_str());
+-        return false;
+-    }
+-
+-    if ( !(header.signature[0]=='3'
+-                && header.signature[1]=='D'
+-                && header.signature[2]=='L'
+-                && header.signature[3]=='T') )
+-    {
+-        CLog::Log(LOGERROR, "%s: Not a 3DLUT file: %s", __FUNCTION__, filename.c_str());
+-        return false;
+-    }
+-
+-    if ( header.fileVersion != 1
+-            || header.lutCompressionMethod != 0
+-            || header.inputColorEncoding != 0
+-            || header.outputColorEncoding != 0 )
+-    {
+-        CLog::Log(LOGERROR, "%s: Unsupported 3DLUT file: %s", __FUNCTION__, filename.c_str());
+-        return false;
+-    }
+-
+-    CLog::Log(LOGNOTICE, "%s: 3DLUT file looks ok so far: %s", __FUNCTION__, filename.c_str());
+-
+-    int rSize = 1 << header.inputBitDepth[0];
+-    int gSize = 1 << header.inputBitDepth[1];
+-    int bSize = 1 << header.inputBitDepth[2];
+-
+-    if ( !((rSize == gSize) && (rSize == bSize)) )
+-    {
+-        CLog::Log(LOGERROR, "%s: Different channel resolutions unsupported: %s", __FUNCTION__, filename.c_str());
+-        return false;
+-    }
+-
+-    int lutsamples = rSize * gSize * bSize * 3;
+-    *CLUTsize = rSize; // TODO: assumes cube
+-    *CLUT = (float*)malloc(lutsamples * sizeof(float));
+-
+-    lutFile.Seek(header.lutFileOffset, SEEK_SET);
+-
+-    for (int rIndex=0; rIndex<rSize; rIndex++) {
+-        for (int gIndex=0; gIndex<gSize; gIndex++) {
+-            uint16_t input[bSize*3];
+-            lutFile.Read(input, 3*bSize*sizeof(uint16_t));
+-            int index = (rIndex + gIndex*rSize)*3;
+-            for (int bIndex=0; bIndex<bSize; bIndex++) {
+-                (*CLUT)[index+bIndex*rSize*gSize*3+0] = input[bIndex*3+2]/65535.0;
+-                (*CLUT)[index+bIndex*rSize*gSize*3+1] = input[bIndex*3+1]/65535.0;
+-                (*CLUT)[index+bIndex*rSize*gSize*3+2] = input[bIndex*3+0]/65535.0;
+-            }
+-        }
+-    }
+-
+-    lutFile.Close();
+-
+-#if 1 // debug 3dLUT greyscale
+-    for (int y=0; y<rSize; y+=1)
+-    {
+-      int index = 3*(y*rSize*rSize + y*rSize + y);
+-      CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
+-          (int)round(y * 255 / (rSize-1.0)), y,
+-          (int)round(255*(*CLUT)[index+0]),
+-          (int)round(255*(*CLUT)[index+1]),
+-          (int)round(255*(*CLUT)[index+2]));
+-    }
+-#endif
+-
+-    return true; // FIXME: false until implemented
+-}
+-
+-int loadLUT(unsigned flags,
+-    float **CLUT,
+-    int *CLUTsize)
+-{
+-
+-    // TODO: profile selection logic
+-    //
+-    // - select colorspace based on video flags (see CONF_FLAGS_COLPRI_MASK)
+-    // - allow user to override colorspace per video?
+-    // - allow user to select gamma?
+-    // - look for matching 3dlut
+-    // - look for matching icc device link
+-    // - look for a display profile
+-    // - fall back to an identity matrix and a warning message?
+-
+-    // TODO: move icc file handling to a separate function
+-
+-    int cmsMode = CSettings::Get().GetInt("videoscreen.colormanagement");
+-
+-    if (cmsMode == CMS_MODE_3DLUT)
+-    {
+-      if (load3DLUT(CSettings::Get().GetString("videoscreen.cms3dlut"), CLUT, CLUTsize))
+-          return 0;
+-    }
+-    else if (cmsMode == CMS_MODE_PROFILE)
+-    {
+-      if (loadICC(CSettings::Get().GetString("videoscreen.displayprofile"), CLUT, CLUTsize))
+-        return 0;
+-    }
+-
+-    return 1;
+-}
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/LutLoader.h b/xbmc/cores/VideoRenderers/VideoShaders/LutLoader.h
+deleted file mode 100644
+index cfc0d2c..0000000
+--- a/xbmc/cores/VideoRenderers/VideoShaders/LutLoader.h
++++ /dev/null
+@@ -1,14 +0,0 @@
+-
+-// FIXME: make into a ColorManagement class
+-
+-enum CMS_MODE
+-{
+-  CMS_MODE_OFF,
+-  CMS_MODE_3DLUT,
+-  CMS_MODE_PROFILE,
+-  CMS_MODE_COUNT
+-};
+-
+-int loadLUT(unsigned flags,
+-    float **CLUT,
+-    int *CLUTsize);
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/Makefile b/xbmc/cores/VideoRenderers/VideoShaders/Makefile
+index 2bdc48e..6897a40 100644
+--- a/xbmc/cores/VideoRenderers/VideoShaders/Makefile
++++ b/xbmc/cores/VideoRenderers/VideoShaders/Makefile
+@@ -1,4 +1,4 @@
+-SRCS=YUV2RGBShader.cpp VideoFilterShader.cpp ConvolutionKernels.cpp GLSLOutput.cpp LutLoader.cpp
++SRCS=YUV2RGBShader.cpp VideoFilterShader.cpp ConvolutionKernels.cpp GLSLOutput.cpp
+ 
+ LIB=VideoShaders.a
+ 
+-- 
+2.4.3
+
+From 956d93af3e44d0c364ab9fc5f05aa22630d3ed6d Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 8 Aug 2015 11:52:02 -0700
+Subject: [PATCH 30/43] cms: fix compilation
+
+---
+ xbmc/ColorManager.cpp                         | 105 ++++++++++++++------------
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp |   2 +
+ 2 files changed, 59 insertions(+), 48 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 8b089b1..e3a26fa 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -2,6 +2,7 @@
+ #include <math.h>
+ #include <string>
+ 
++#include "config.h"
+ #include "ColorManager.h"
+ #include "filesystem/File.h"
+ #include "settings/Settings.h"
+@@ -42,6 +43,7 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+   switch (CSettings::Get().GetInt("videoscreen.colormanagement"))
+   {
+   case CMS_MODE_3DLUT:
++    CLog::Log(LOGDEBUG, "ColorManager: CMS_MODE_3DLUT\n");
+     cur3dlutFile = CSettings::Get().GetString("videoscreen.cms3dlut");
+     if (!Load3dLut(cur3dlutFile, clutData, clutSize))
+       return false;
+@@ -49,60 +51,67 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+     break;
+ 
+   case CMS_MODE_PROFILE:
++    CLog::Log(LOGDEBUG, "ColorManager: CMS_MODE_PROFILE\n");
+ #if defined(HAVE_LCMS2)
+-    bool changed = false;
+-    // check if display profile is not loaded, or has changed
+-    if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
+     {
+-      changed = true;
+-      // free old profile if there is one
+-      if (m_hProfile)
+-        cmsCloseProfile(m_hProfile);
+-      // load profile
+-      m_hProfile = LoadIccDisplayProfile(CSettings::Get().GetString("videoscreen.displayprofile"));
+-      if (!m_hProfile)
+-        return false;
+-      // detect blackpoint
+-      if (cmsDetectBlackPoint(&m_blackPoint, m_hProfile, INTENT_PERCEPTUAL, 0))
++      bool changed = false;
++      // check if display profile is not loaded, or has changed
++      if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
+       {
+-        CLog::Log(LOGDEBUG, "black point: %f\n", m_blackPoint.Y);
++        changed = true;
++        // free old profile if there is one
++        if (m_hProfile)
++          cmsCloseProfile(m_hProfile);
++        // load profile
++        m_hProfile = LoadIccDisplayProfile(CSettings::Get().GetString("videoscreen.displayprofile"));
++        if (!m_hProfile)
++          return false;
++        // detect blackpoint
++        if (cmsDetectBlackPoint(&m_blackPoint, m_hProfile, INTENT_PERCEPTUAL, 0))
++        {
++          CLog::Log(LOGDEBUG, "black point: %f\n", m_blackPoint.Y);
++        }
++        curIccProfile = CSettings::Get().GetString("videoscreen.displayprofile");
+       }
++      // create gamma curve
++      cmsToneCurve* gammaCurve;
++      // TODO: gamma paremeters
++      gammaCurve =
++        CreateToneCurve(CMS_TRC_BT1886, 2.4, m_blackPoint);
++
++      // create source profile
++      // TODO: primaries and whitepoint selection
++      cmsHPROFILE sourceProfile =
++        CreateSourceProfile(CMS_PRIMARIES_BT709, gammaCurve, 0);
++
++      // link profiles
++      // TODO: intent selection, switch output to 16 bits?
++      cmsHTRANSFORM deviceLink =
++        cmsCreateTransform(sourceProfile, TYPE_RGB_FLT,
++            m_hProfile, TYPE_RGB_FLT,
++            INTENT_PERCEPTUAL, 0);
++
++      // sample the transformation
++      *clutSize = 65;
++      Create3dLut(deviceLink, clutData, clutSize);
++
++      // free gamma curve, source profile and transformation
++      cmsDeleteTransform(deviceLink);
++      cmsCloseProfile(sourceProfile);
++      cmsFreeToneCurve(gammaCurve);
+     }
+-    // create gamma curve
+-    cmsToneCurve* gammaCurve;
+-    // TODO: gamma paremeters
+-    gammaCurve =
+-      CreateToneCurve(CMS_TRC_BT1886, 2.4, m_blackPoint);
+-
+-    // create source profile
+-    // TODO: primaries and whitepoint selection
+-    cmsHPROFILE sourceProfile =
+-      CreateSourceProfile(CMS_PRIMARIES_BT709, gammaCurve, 0);
+-
+-    // link profiles
+-    // TODO: intent selection, switch output to 16 bits?
+-    cmsHTRANSFORM deviceLink =
+-      cmsCreateTransform(sourceProfile, TYPE_RGB_FLT,
+-                          m_hProfile, TYPE_RGB_FLT,
+-                          INTENT_PERCEPTUAL, 0);
+-
+-    // sample the transformation
+-    *clutSize = 65;
+-    Create3dLut(deviceLink, clutData, clutSize);
+-
+-    // free gamma curve, source profile and transformation
+-    cmsDeleteTransform(deviceLink);
+-    cmsCloseProfile(sourceProfile);
+-    cmsFreeToneCurve(gammaCurves[0]);
+ 
+-    curCmsMode = CMS_MODE_3DLUT;
++    curCmsMode = CMS_MODE_PROFILE;
+     break;
+ #else   //defined(HAVE_LCMS2)
+     return false;
+ #endif  //defined(HAVE_LCMS2)
+ 
+   case CMS_MODE_OFF:
++    CLog::Log(LOGDEBUG, "ColorManager: CMS_MODE_OFF\n");
++    return false;
+   default:
++    CLog::Log(LOGDEBUG, "ColorManager: unknown CMS mode\n");
+     return false;
+   }
+ 
+@@ -292,7 +301,7 @@ cmsToneCurve* CColorManager::CreateToneCurve(CMS_TRC_TYPE gammaType, float gamma
+   cmsFloat32Number gammatable[tablesize];
+   for (int i=0; i<tablesize; i++)
+   {
+-    gammatable[i] = gain * pow(((double) i)/(tablesize-1) + lift, gamma);
++    gammatable[i] = gain * pow(((double) i)/(tablesize-1) + lift, gammaValue);
+   }
+ 
+   cmsToneCurve* Gamma = cmsBuildTabulatedToneCurveFloat(0,
+@@ -324,7 +333,7 @@ bool CColorManager::Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, in
+ {
+     const int lutResolution = *clutSize;
+     int lutsamples = lutResolution * lutResolution * lutResolution * 3;
+-    *CLUT = (uint16_t*)malloc(lutsamples * sizeof(uint16_t));
++    *clutData = (uint16_t*)malloc(lutsamples * sizeof(uint16_t));
+ 
+     cmsFloat32Number input[3*lutResolution];
+     cmsFloat32Number output[3*lutResolution];
+@@ -341,9 +350,9 @@ bool CColorManager::Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, in
+           input[rIndex*3+2] = videoToPC(bIndex / (lutResolution-1.0));
+         }
+         int index = (bIndex*lutResolution*lutResolution + gIndex*lutResolution)*3;
+-        cmsDoTransform(hTransform, input, output, lutResolution);
++        cmsDoTransform(transform, input, output, lutResolution);
+         for (int i=0; i<lutResolution*3; i++) {
+-          (*CLUT)[index+i] = PCToVideo(output[i]) * 65535;
++          (*clutData)[index+i] = PCToVideo(output[i]) * 65535;
+         }
+       }
+     }
+@@ -354,9 +363,9 @@ bool CColorManager::Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, in
+       int index = 3*(y*lutResolution*lutResolution + y*lutResolution + y);
+       CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
+           (int)round(y * 255 / (lutResolution-1.0)), y,
+-          (int)round((*CLUT)[index+0]/256),
+-          (int)round((*CLUT)[index+1]/256),
+-          (int)round((*CLUT)[index+2]/256));
++          (int)round((*clutData)[index+0]/256),
++          (int)round((*clutData)[index+1]/256),
++          (int)round((*clutData)[index+2]/256));
+     }
+ #endif
+ 
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 5639aa5..53550c2 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -308,6 +308,7 @@ bool CLinuxRendererGL::Configure(unsigned int width, unsigned int height, unsign
+   {
+     if (!cms.CheckConfiguration(m_cmsToken))
+     {
++      CLog::Log(LOGDEBUG, "CMS configuration changed, reload LUT");
+       if (!LoadCLUT())
+         return false;
+     }
+@@ -787,6 +788,7 @@ void CLinuxRendererGL::UpdateVideoFilter()
+     {
+       if (!CColorManager::Get().CheckConfiguration(m_cmsToken))
+       {
++        CLog::Log(LOGDEBUG, "CMS configuration changed, reload LUT");
+         LoadCLUT();
+       }
+       m_cmsOn = true;
+-- 
+2.4.3
+
+From 546844735bc6d057d309dae2d654eadc8637a1d2 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 8 Aug 2015 14:13:24 -0700
+Subject: [PATCH 31/43] gl: pass CLUT size to output shader to fix coords for
+ any CLUT size
+
+---
+ system/shaders/output.glsl                            | 3 ++-
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp         | 4 ++--
+ xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp | 6 +++++-
+ xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h   | 4 +++-
+ 4 files changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/system/shaders/output.glsl b/system/shaders/output.glsl
+index 9ace74c..7317f90 100644
+--- a/system/shaders/output.glsl
++++ b/system/shaders/output.glsl
+@@ -4,6 +4,7 @@ uniform float     m_ditherquant;
+ uniform vec2      m_dithersize;
+ #endif
+ #if (XBMC_3DLUT)
++uniform float     m_CLUTsize;
+ uniform sampler3D m_CLUT;
+ #endif
+ 
+@@ -13,7 +14,7 @@ void main()
+ 
+ #if (XBMC_3DLUT)
+   // FIXME: can this be optimized?
+-  rgb             = texture3D(m_CLUT, (rgb.rgb*255.0 + 0.5) / 256.0);
++  rgb             = texture3D(m_CLUT, (rgb.rgb*(m_CLUTsize-1.0) + 0.5) / m_CLUTsize);
+ #endif
+ 
+ #if (XBMC_FULLRANGE)
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 53550c2..35ef530 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -877,7 +877,7 @@ void CLinuxRendererGL::UpdateVideoFilter()
+       }
+     }
+ 
+-    m_pVideoFilterShader = new ConvolutionFilterShader(m_scalingMethod, m_nonLinStretch, new GLSLOutput(m_tCLUTTex, 3, m_iFlags));
++    m_pVideoFilterShader = new ConvolutionFilterShader(m_scalingMethod, m_nonLinStretch, new GLSLOutput(m_tCLUTTex, m_CLUTsize, 3, m_iFlags));
+     if (!m_pVideoFilterShader->CompileAndLink())
+     {
+       CLog::Log(LOGERROR, "GL: Error compiling and linking video filter shader");
+@@ -945,7 +945,7 @@ void CLinuxRendererGL::LoadShaders(int field)
+         // if single pass, create GLSLOutput helper and pass it to YUV2RGB shader
+         m_pYUVShader = new YUV2RGBProgressiveShader(m_textureTarget==GL_TEXTURE_RECTANGLE_ARB, m_iFlags, m_format,
+                                                     m_nonLinStretch && m_renderQuality == RQ_SINGLEPASS,
+-                                                    (m_renderQuality == RQ_SINGLEPASS) ? new GLSLOutput(m_tCLUTTex, 3, m_iFlags) : NULL);
++                                                    (m_renderQuality == RQ_SINGLEPASS) ? new GLSLOutput(m_tCLUTTex, m_CLUTsize, 3, m_iFlags) : NULL);
+ 
+         CLog::Log(LOGNOTICE, "GL: Selecting Single Pass YUV 2 RGB shader");
+ 
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
+index b74ef1f..a7e1beb 100644
+--- a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
++++ b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.cpp
+@@ -33,7 +33,7 @@
+ 
+ using namespace Shaders;
+ 
+-GLSLOutput::GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags)
++GLSLOutput::GLSLOutput(GLuint clutTex, int clutSize, int freeTexUnit, unsigned videoflags)
+ {
+   // set member variable initial values
+   m_1stTexUnit = freeTexUnit;
+@@ -50,6 +50,7 @@ GLSLOutput::GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags)
+   m_hDitherQuant = -1;
+   m_hDitherSize  = -1;
+   m_hCLUT        = -1;
++  m_hCLUTSize    = -1;
+ 
+   m_dither = g_Windowing.UseDithering();
+   m_ditherDepth = g_Windowing.DitherDepth();
+@@ -57,6 +58,7 @@ GLSLOutput::GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags)
+   // make sure CMS is enabled - this allows us to keep the texture
+   // around to quickly switch between CMS on and off
+   m_3DLUT = CColorManager::Get().IsEnabled() && (clutTex > 0);
++  m_uCLUTSize = clutSize;
+ }
+ 
+ std::string GLSLOutput::GetDefines()
+@@ -82,6 +84,7 @@ void GLSLOutput::OnCompiledAndLinked(GLuint programHandle)
+   //   3DLUT
+   if (m_3DLUT) {
+     m_hCLUT        = glGetUniformLocation(programHandle, "m_CLUT");
++    m_hCLUTSize    = glGetUniformLocation(programHandle, "m_CLUTsize");
+   }
+ 
+   if (m_dither) {
+@@ -137,6 +140,7 @@ bool GLSLOutput::OnEnabled()
+   if (m_3DLUT) {
+     // set texture units
+     glUniform1i(m_hCLUT, m_uCLUT);
++    glUniform1f(m_hCLUTSize, m_uCLUTSize);
+     VerifyGLState();
+ 
+     // bind textures
+diff --git a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h
+index f604048..c39716d 100644
+--- a/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h
++++ b/xbmc/cores/VideoRenderers/VideoShaders/GLSLOutput.h
+@@ -33,7 +33,7 @@ namespace Shaders {
+   {
+   public:
+     // take the 1st available texture unit as a parameter
+-    GLSLOutput(GLuint clutTex, int freeTexUnit, unsigned videoflags);
++    GLSLOutput(GLuint clutTex, int clutSize, int freeTexUnit, unsigned videoflags);
+     std::string GetDefines();
+     void OnCompiledAndLinked(GLuint programHandle);
+     bool OnEnabled();
+@@ -52,6 +52,7 @@ namespace Shaders {
+     int m_1stTexUnit;
+     int m_uDither;
+     int m_uCLUT;
++    int m_uCLUTSize;
+ 
+     // defines
+ 
+@@ -60,6 +61,7 @@ namespace Shaders {
+     GLint m_hDitherQuant;
+     GLint m_hDitherSize;
+     GLint m_hCLUT;
++    GLint m_hCLUTSize;
+ 
+     // textures
+     GLuint m_tDitherTex;
+-- 
+2.4.3
+
+From 0e7055d8bc5e60574b43de88d410765dabff5fc0 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 8 Aug 2015 14:14:12 -0700
+Subject: [PATCH 32/43] cms: use 16x16x16 CLUT for now
+
+---
+ xbmc/ColorManager.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index e3a26fa..90b36c3 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -92,7 +92,7 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+             INTENT_PERCEPTUAL, 0);
+ 
+       // sample the transformation
+-      *clutSize = 65;
++      *clutSize = 16;
+       Create3dLut(deviceLink, clutData, clutSize);
+ 
+       // free gamma curve, source profile and transformation
+-- 
+2.4.3
+
+From 6fb5135edf38dd2b286922983901b852c0c6c9e1 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 9 Aug 2015 00:23:02 -0700
+Subject: [PATCH 33/43] cms: use 64x64x64 LUT and absolute colorimetric intent
+
+---
+ xbmc/ColorManager.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 90b36c3..6656887 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -89,10 +89,10 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+       cmsHTRANSFORM deviceLink =
+         cmsCreateTransform(sourceProfile, TYPE_RGB_FLT,
+             m_hProfile, TYPE_RGB_FLT,
+-            INTENT_PERCEPTUAL, 0);
++            INTENT_ABSOLUTE_COLORIMETRIC, 0);
+ 
+       // sample the transformation
+-      *clutSize = 16;
++      *clutSize = 64;
+       Create3dLut(deviceLink, clutData, clutSize);
+ 
+       // free gamma curve, source profile and transformation
+-- 
+2.4.3
+
+From ed78bcc6f3dcfd02b06d917712fd860c4f80ce32 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 9 Aug 2015 22:31:57 -0700
+Subject: [PATCH 34/43] cms: implement input offset gamma
+
+---
+ xbmc/ColorManager.cpp | 87 ++++++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 72 insertions(+), 15 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 6656887..2630195 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -77,7 +77,7 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+       cmsToneCurve* gammaCurve;
+       // TODO: gamma paremeters
+       gammaCurve =
+-        CreateToneCurve(CMS_TRC_BT1886, 2.4, m_blackPoint);
++        CreateToneCurve(CMS_TRC_INPUT_OFFSET, 2.2, m_blackPoint);
+ 
+       // create source profile
+       // TODO: primaries and whitepoint selection
+@@ -291,23 +291,80 @@ cmsHPROFILE CColorManager::LoadIccDisplayProfile(const std::string filename)
+ 
+ cmsToneCurve* CColorManager::CreateToneCurve(CMS_TRC_TYPE gammaType, float gammaValue, cmsCIEXYZ blackPoint)
+ {
+-  // FIXME: REWRITE
+-  double bkipow = pow(blackPoint.Y, 1.0/gammaValue);
+-  double wtipow = 1.0;
+-  double lift = bkipow / (wtipow - bkipow);
+-  double gain = pow(wtipow - bkipow, gammaValue);
+-
+-  const int tablesize = 1024;
+-  cmsFloat32Number gammatable[tablesize];
+-  for (int i=0; i<tablesize; i++)
++  const int tableSize = 1024;
++  cmsFloat32Number gammaTable[tableSize];
++
++  switch (gammaType)
+   {
+-    gammatable[i] = gain * pow(((double) i)/(tablesize-1) + lift, gammaValue);
++  case CMS_TRC_INPUT_OFFSET:
++    // calculate gamma to match effective gamma provided, then fall through to bt.1886
++    {
++      double effectiveGamma = gammaValue;
++      double gammaLow = effectiveGamma;  // low limit for infinite contrast ratio
++      double gammaHigh = 3.2;            // high limit for 2.4 gamma on 200:1 contrast ratio
++      double gammaGuess = 0.0;
++#define TARGET(gamma) (pow(0.5, (gamma)))
++#define GAIN(bkpt, gamma) (pow(1-pow((bkpt), 1/(gamma)), (gamma)))
++#define LIFT(bkpt, gamma) (pow((bkpt), 1/(gamma)) / (1-pow((bkpt), 1/(gamma))))
++#define HALFPT(bkpt, gamma) (GAIN(bkpt, gamma)*pow(0.5+LIFT(bkpt, gamma), gamma))
++      for (int i=0; i<3; i++)
++      {
++        // calculate 50% output for gammaLow and gammaHigh, compare to target 50% output
++        gammaGuess = gammaLow + (gammaHigh-gammaLow)
++            * ((HALFPT(blackPoint.Y, gammaLow)-TARGET(effectiveGamma))
++                / (HALFPT(blackPoint.Y, gammaLow)-HALFPT(blackPoint.Y, gammaHigh)));
++        if (HALFPT(blackPoint.Y, gammaGuess) < TARGET(effectiveGamma))
++        {
++          // guess is too high
++          // move low limit half way to guess
++          gammaLow = gammaLow + (gammaGuess-gammaLow)/2;
++          // set high limit to guess
++          gammaHigh = gammaGuess;
++        }
++        else
++        {
++          // guess is too low
++          // set low limit to guess
++          gammaLow = gammaGuess;
++          // move high limit half way to guess
++          gammaHigh = gammaHigh + (gammaGuess-gammaLow)/2;
++        }
++      }
++      gammaValue = gammaGuess;
++      CLog::Log(LOGINFO, "calculated technical gamma %0.3f (50%% target %0.4f, output %0.4f)\n",
++        gammaValue,
++        TARGET(effectiveGamma),
++        HALFPT(blackPoint.Y, gammaValue));
++#undef TARGET
++#undef GAIN
++#undef LIFT
++#undef HALFPT
++    }
++    // fall through to bt.1886 with calculated technical gamma
++  case CMS_TRC_BT1886:
++    {
++      double bkipow = pow(blackPoint.Y, 1.0/gammaValue);
++      double wtipow = 1.0;
++      double lift = bkipow / (wtipow - bkipow);
++      double gain = pow(wtipow - bkipow, gammaValue);
++      for (int i=0; i<tableSize; i++)
++      {
++        gammaTable[i] = gain * pow(((double) i)/(tableSize-1) + lift, gammaValue);
++      }
++    }
++    break;
++  case CMS_TRC_OUTPUT_OFFSET:
++
++  case CMS_TRC_ABSOLUTE:
++
++  default:
++    CLog::Log(LOGERROR, "gamma type not implemented yet\n");
+   }
+ 
+-  cmsToneCurve* Gamma = cmsBuildTabulatedToneCurveFloat(0,
+-      tablesize,
+-      gammatable);
+-  return Gamma;
++  cmsToneCurve* result = cmsBuildTabulatedToneCurveFloat(0,
++      tableSize,
++      gammaTable);
++  return result;
+ }
+ 
+ 
+-- 
+2.4.3
+
+From 1c58083117dc335581c41124542313c32abc62db Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 9 Aug 2015 22:46:46 -0700
+Subject: [PATCH 35/43] cms: implement output offset and absolute gamma
+
+---
+ xbmc/ColorManager.cpp | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 2630195..86cb606 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -341,6 +341,7 @@ cmsToneCurve* CColorManager::CreateToneCurve(CMS_TRC_TYPE gammaType, float gamma
+ #undef HALFPT
+     }
+     // fall through to bt.1886 with calculated technical gamma
++
+   case CMS_TRC_BT1886:
+     {
+       double bkipow = pow(blackPoint.Y, 1.0/gammaValue);
+@@ -353,12 +354,31 @@ cmsToneCurve* CColorManager::CreateToneCurve(CMS_TRC_TYPE gammaType, float gamma
+       }
+     }
+     break;
++
+   case CMS_TRC_OUTPUT_OFFSET:
++    {
++      double gain = 1-blackPoint.Y;
++      // TODO: here gamma is adjusted to match absolute gamma output at 50%
++      //  - is it a good idea or should the provided gamma be kept?
++      double adjustedGamma = log(gain/(gain+pow(2,-gammaValue)-1))/log(2);
++      for (int i=0; i<tableSize; i++)
++      {
++        gammaTable[i] = gain * pow(((double) i)/(tableSize-1), adjustedGamma) + blackPoint.Y;
++      }
++    }
++    break;
+ 
+   case CMS_TRC_ABSOLUTE:
++    {
++      for (int i=0; i<tableSize; i++)
++      {
++        gammaTable[i] = fmax(blackPoint.Y, pow(((double) i)/(tableSize-1), gammaValue));
++      }
++    }
++    break;
+ 
+   default:
+-    CLog::Log(LOGERROR, "gamma type not implemented yet\n");
++    CLog::Log(LOGERROR, "gamma type %d not implemented\n", gammaType);
+   }
+ 
+   cmsToneCurve* result = cmsBuildTabulatedToneCurveFloat(0,
+-- 
+2.4.3
+
+From 1dd609e80d83dccc6385acd990a99fbcfe4045f7 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 9 Aug 2015 23:39:58 -0700
+Subject: [PATCH 36/43] cms: whitepoints and primaries
+
+---
+ xbmc/ColorManager.cpp | 33 ++++++++++++++++++++++++++-------
+ xbmc/ColorManager.h   | 15 +++++++++++----
+ 2 files changed, 37 insertions(+), 11 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 86cb606..e854a62 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -82,7 +82,7 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+       // create source profile
+       // TODO: primaries and whitepoint selection
+       cmsHPROFILE sourceProfile =
+-        CreateSourceProfile(CMS_PRIMARIES_BT709, gammaCurve, 0);
++        CreateSourceProfile(CMS_PRIMARIES_BT709, gammaCurve, CMS_WHITEPOINT_D65);
+ 
+       // link profiles
+       // TODO: intent selection, switch output to 16 bits?
+@@ -392,15 +392,34 @@ cmsHPROFILE CColorManager::CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneC
+ {
+   cmsToneCurve*  Gamma3[3];
+   cmsHPROFILE hProfile;
+-  cmsCIExyY whiteCoords = { 0.3127, 0.3290, 1.0 };
+-  cmsCIExyYTRIPLE primaryCoords = {
+-      0.640, 0.330, 1.0,
++  cmsCIExyY whiteCoords[] = {
++    { 0.3127, 0.3290, 1.0 },    // D65 as specified in BT.709
++    { 0.2830, 0.2980, 1.0 }     // Japanese D93 - is there a definitive source? NHK? ARIB TR-B9?
++  };
++  cmsCIExyYTRIPLE primaryCoords[] = {
++    { 0.640, 0.330, 1.0,        // auto setting, these should not be used (BT.709 just in case)
+       0.300, 0.600, 1.0,
+-      0.150, 0.060, 1.0 };
++      0.150, 0.060, 1.0 },
++    { 0.640, 0.330, 1.0,        // BT.709 (HDTV, sRGB)
++      0.300, 0.600, 1.0,
++      0.150, 0.060, 1.0 },
++    { 0.630, 0.340, 1.0,        // SMPTE 170M (SDTV)
++      0.310, 0.595, 1.0,
++      0.155, 0.070, 1.0 },
++    { 0.670, 0.330, 1.0,        // BT.470 M (obsolete NTSC 1953)
++      0.210, 0.710, 1.0,
++      0.140, 0.080, 1.0 },
++    { 0.640, 0.330, 1.0,        // BT.470 B/G (obsolete PAL/SECAM 1975)
++      0.290, 0.600, 1.0,
++      0.150, 0.060, 1.0 },
++    { 0.630, 0.340, 1.0,        // SMPTE 240M (obsolete HDTV 1988)
++      0.310, 0.595, 1.0,
++      0.155, 0.070, 1.0 }
++  };
+ 
+   Gamma3[0] = Gamma3[1] = Gamma3[2] = gamma;
+-  hProfile = cmsCreateRGBProfile(&whiteCoords,
+-      &primaryCoords,
++  hProfile = cmsCreateRGBProfile(&whiteCoords[whitepoint],
++      &primaryCoords[primaries],
+       Gamma3);
+   return hProfile;
+ }
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index 3cbee0e..dc4c8dd 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -12,14 +12,21 @@ enum CMS_MODE
+   CMS_MODE_COUNT
+ };
+ 
++enum CMS_WHITEPOINT
++{
++  CMS_WHITEPOINT_D65,
++  CMS_WHITEPOINT_D93,
++  CMS_WHITEPOINT_COUNT
++};
++
+ enum CMS_PRIMARIES
+ {
+   CMS_PRIMARIES_AUTO,
+   CMS_PRIMARIES_BT709,    // HDTV
+-  CMS_PRIMARIES_BT170M,   // SDTV
+-  CMS_PRIMARIES_BT470M,   // NTSC (1953)
+-  CMS_PRIMARIES_BT470BG,  // PAL/SECAM (1975)
+-  CMS_PRIMARIES_240M,     // early HDTV
++  CMS_PRIMARIES_170M,     // SDTV
++  CMS_PRIMARIES_BT470M,   // old NTSC (1953)
++  CMS_PRIMARIES_BT470BG,  // old PAL/SECAM (1975)
++  CMS_PRIMARIES_240M,     // old HDTV (1988)
+   CMS_PRIMARIES_COUNT
+ };
+ 
+-- 
+2.4.3
+
+From 3a8f11118b47f0f79d3da9a411b20cfc17b72dd5 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sat, 15 Aug 2015 15:49:16 -0700
+Subject: [PATCH 37/43] cms: start whitepoint handling
+
+---
+ xbmc/ColorManager.cpp | 3 ++-
+ xbmc/ColorManager.h   | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index e854a62..0ccc021 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -86,6 +86,7 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+ 
+       // link profiles
+       // TODO: intent selection, switch output to 16 bits?
++      cmsSetAdaptationState(0.0);
+       cmsHTRANSFORM deviceLink =
+         cmsCreateTransform(sourceProfile, TYPE_RGB_FLT,
+             m_hProfile, TYPE_RGB_FLT,
+@@ -388,7 +389,7 @@ cmsToneCurve* CColorManager::CreateToneCurve(CMS_TRC_TYPE gammaType, float gamma
+ }
+ 
+ 
+-cmsHPROFILE CColorManager::CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneCurve *gamma, int whitepoint)
++cmsHPROFILE CColorManager::CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneCurve *gamma, CMS_WHITEPOINT whitepoint)
+ {
+   cmsToneCurve*  Gamma3[3];
+   cmsHPROFILE hProfile;
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index dc4c8dd..f8b8d5e 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -114,7 +114,7 @@ private:
+   cmsToneCurve* CreateToneCurve(CMS_TRC_TYPE gammaType, float gammaValue, cmsCIEXYZ blackPoint);
+ 
+   // create a source profile
+-  cmsHPROFILE CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneCurve *gamma, int whitepoint);
++  cmsHPROFILE CreateSourceProfile(CMS_PRIMARIES primaries, cmsToneCurve *gamma, CMS_WHITEPOINT whitepoint);
+ 
+ 
+   /* \brief Create 3D LUT
+-- 
+2.4.3
+
+From 706eb207ae338d15c09a81fcb654ef28282ddebd Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 16 Aug 2015 00:20:06 -0700
+Subject: [PATCH 38/43] settings: separate cms toggle, setting dependencies
+
+---
+ .../resource.language.en_gb/resources/strings.po   | 12 ++++--
+ system/settings/settings.xml                       | 17 ++++++--
+ xbmc/ColorManager.cpp                              | 11 ++----
+ xbmc/ColorManager.h                                |  3 +-
+ xbmc/settings/DisplaySettings.cpp                  | 14 ++-----
+ xbmc/video/dialogs/GUIDialogCMSSettings.cpp        | 46 ++++++++++++++++------
+ 6 files changed, 67 insertions(+), 36 deletions(-)
+
+diff --git a/addons/resource.language.en_gb/resources/strings.po b/addons/resource.language.en_gb/resources/strings.po
+index 810a439..7d8c825 100644
+--- a/addons/resource.language.en_gb/resources/strings.po
++++ b/addons/resource.language.en_gb/resources/strings.po
+@@ -16313,19 +16313,25 @@ msgctxt "#36553"
+ msgid "Default 3D LUT for color management."
+ msgstr ""
+ 
+-#. label of a setting, allowing to specify the color management mode of a video
++#. label of a setting, allowing to toggle the color management on/off
+ #: xbmc/video/dialogs/GUIDialogVideoSettings.cpp
+ msgctxt "#36554"
++msgid "Color management"
++msgstr ""
++
++#. label of a setting, allowing to specify the color management mode of a video
++#: xbmc/video/dialogs/GUIDialogVideoSettings.cpp
++msgctxt "#36555"
+ msgid "Color management mode"
+ msgstr ""
+ 
+ #. label of a setting, allowing to specify the 3dlut for a video
+ #: xbmc/video/dialogs/GUIDialogVideoSettings.cpp
+-msgctxt "#36555"
++msgctxt "#36556"
+ msgid "3D LUT"
+ msgstr ""
+ 
+-#empty strings from id 36556 to 36599
++#empty strings from id 36557 to 36599
+ #reserved strings 365XX
+ 
+ #. Description of settings category "Music -> Library" with label #14022
+diff --git a/system/settings/settings.xml b/system/settings/settings.xml
+index e128b23..0513390 100644
+--- a/system/settings/settings.xml
++++ b/system/settings/settings.xml
+@@ -2514,13 +2514,22 @@
+           </dependencies>
+           <control type="spinner" format="integer" />
+         </setting>
+-        <setting id="videoscreen.colormanagement" type="integer" label="36045" help="36554">
++        <setting id="videoscreen.cmsenabled" type="boolean" label="36554" help="36550">
++          <requirement>HAS_GL</requirement>
++          <level>3</level>
++          <default>false</default>
++          <control type="toggle" />
++        </setting>
++        <setting id="videoscreen.cmsmode" type="integer" label="36555" help="36554">
+           <requirement>HAS_GL</requirement>
+           <level>3</level>
+           <default>0</default>
+           <constraints>
+             <options>cmsmodes</options>
+           </constraints>
++          <dependencies>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++          </dependencies>
+           <control type="list" format="integer"/>
+         </setting>
+         <setting id="videoscreen.cms3dlut" type="string" label="16042" help="36553">
+@@ -2535,7 +2544,8 @@
+             <allowempty>true</allowempty>
+           </constraints>
+           <dependencies>
+-            <dependency type="visible" setting="videoscreen.colormanagement" operator="is">1</dependency>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++            <dependency type="visible" setting="videoscreen.cmsmode" operator="is">0</dependency>
+           </dependencies>
+           <control type="button" format="action" />
+         </setting>
+@@ -2552,7 +2562,8 @@
+             <allowempty>true</allowempty>
+           </constraints>
+           <dependencies>
+-            <dependency type="visible" setting="videoscreen.colormanagement" operator="is">2</dependency>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++            <dependency type="visible" setting="videoscreen.cmsmode" operator="is">1</dependency>
+           </dependencies>
+           <control type="button" format="action" />
+         </setting>
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 0ccc021..245cf2c 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -35,12 +35,12 @@ bool CColorManager::IsEnabled()
+ {
+   //TODO: check that the configuration is valid here (files exist etc)
+ 
+-  return CSettings::Get().GetInt("videoscreen.colormanagement") != CMS_MODE_OFF;
++  return CSettings::Get().GetBool("videoscreen.cmsenabled");
+ }
+ 
+ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, uint16_t **clutData)
+ {
+-  switch (CSettings::Get().GetInt("videoscreen.colormanagement"))
++  switch (CSettings::Get().GetInt("videoscreen.cmsmode"))
+   {
+   case CMS_MODE_3DLUT:
+     CLog::Log(LOGDEBUG, "ColorManager: CMS_MODE_3DLUT\n");
+@@ -108,11 +108,8 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+     return false;
+ #endif  //defined(HAVE_LCMS2)
+ 
+-  case CMS_MODE_OFF:
+-    CLog::Log(LOGDEBUG, "ColorManager: CMS_MODE_OFF\n");
+-    return false;
+   default:
+-    CLog::Log(LOGDEBUG, "ColorManager: unknown CMS mode\n");
++    CLog::Log(LOGDEBUG, "ColorManager: unknown CMS mode %d\n", CSettings::Get().GetInt("videoscreen.cmsmode"));
+     return false;
+   }
+ 
+@@ -127,7 +124,7 @@ bool CColorManager::CheckConfiguration(int cmsToken)
+ {
+   if (cmsToken != curCmsToken)
+     return false;
+-  if (curCmsMode != CSettings::Get().GetInt("videoscreen.colormanagement"))
++  if (curCmsMode != CSettings::Get().GetInt("videoscreen.cmsmode"))
+     return false;   // CMS mode has changed
+   switch (curCmsMode)
+   {
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index f8b8d5e..a6b42b7 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -4,9 +4,10 @@
+ #include "lcms2.h"
+ #endif
+ 
++#include <string>
++
+ enum CMS_MODE
+ {
+-  CMS_MODE_OFF,
+   CMS_MODE_3DLUT,
+   CMS_MODE_PROFILE,
+   CMS_MODE_COUNT
+diff --git a/xbmc/settings/DisplaySettings.cpp b/xbmc/settings/DisplaySettings.cpp
+index d390e99..1bf40f7 100644
+--- a/xbmc/settings/DisplaySettings.cpp
++++ b/xbmc/settings/DisplaySettings.cpp
+@@ -21,6 +21,7 @@
+ #include <float.h>
+ #include <stdlib.h>
+ 
++#include "ColorManager.h"
+ #include "DisplaySettings.h"
+ #include "dialogs/GUIDialogFileBrowser.h"
+ #include "dialogs/GUIDialogYesNo.h"
+@@ -783,19 +784,10 @@ void CDisplaySettings::SettingOptionsPreferredStereoscopicViewModesFiller(const
+   }
+ }
+ 
+-// FIXME: move to CMS
+-enum CMS_MODE
+-{
+-  CMS_MODE_OFF,
+-  CMS_MODE_3DLUT,
+-  CMS_MODE_PROFILE,
+-  CMS_MODE_COUNT
+-};
+-
+ void CDisplaySettings::SettingOptionsCmsModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data)
+ {
+-  const static std::string cmsModeLabels[] = { "Off", "3DLUT", "ICC profile" };
+-  for (int i = CMS_MODE_OFF; i < CMS_MODE_COUNT; i++)
++  const static std::string cmsModeLabels[] = { "3DLUT", "ICC profile" }; // FIXME: should be moved to ColorManager.h?
++  for (int i = 0; i < CMS_MODE_COUNT; i++)
+   {
+     CMS_MODE mode = (CMS_MODE) i;
+ #ifndef HAVE_LCMS2
+diff --git a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+index 7f79076..e692fb1 100644
+--- a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++++ b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+@@ -20,6 +20,7 @@
+ 
+ // FIXME: clean up includes
+ #include "system.h"
++#include "ColorManager.h"
+ #include "FileItem.h"
+ #include "GUIDialogCMSSettings.h"
+ #include "GUIPassword.h"
+@@ -42,7 +43,8 @@
+ 
+ #include <vector>
+ 
+-#define SETTING_VIDEO_CMSMODE             "videoscreen.colormanagement"
++#define SETTING_VIDEO_CMSENABLE           "videoscreen.cmsenabled"
++#define SETTING_VIDEO_CMSMODE             "videoscreen.cmsmode"
+ #define SETTING_VIDEO_CMS3DLUT            "videoscreen.cms3dlut"
+ 
+ CGUIDialogCMSSettings::CGUIDialogCMSSettings()
+@@ -63,7 +65,7 @@ void CGUIDialogCMSSettings::InitializeSettings()
+ {
+   CGUIDialogSettingsManualBase::InitializeSettings();
+ 
+-  CSettingCategory *category = AddCategory("cmssettings", -1);
++  CSettingCategory *category = AddCategory("cms", -1);
+   if (category == NULL)
+   {
+     CLog::Log(LOGERROR, "CGUIDialogCMSSettings: unable to setup settings");
+@@ -82,17 +84,37 @@ void CGUIDialogCMSSettings::InitializeSettings()
+ 
+   StaticIntegerSettingOptions entries;
+ 
++  // create "depsCmsEnabled" for settings depending on CMS being enabled
++  CSettingDependency dependencyCmsEnabled(SettingDependencyTypeEnable, m_settingsManager);
++  dependencyCmsEnabled.Or()
++    ->Add(CSettingDependencyConditionPtr(new CSettingDependencyCondition(SETTING_VIDEO_CMSENABLE, "true", SettingDependencyOperatorEquals, false, m_settingsManager)));
++  SettingDependencies depsCmsEnabled;
++  depsCmsEnabled.push_back(dependencyCmsEnabled);
++
++  // create "depsCms3dlut" for 3dlut settings
++  CSettingDependency dependencyCms3dlut(SettingDependencyTypeVisible, m_settingsManager);
++  dependencyCms3dlut.And()
++    ->Add(CSettingDependencyConditionPtr(new CSettingDependencyCondition(SETTING_VIDEO_CMSMODE, std::to_string(CMS_MODE_3DLUT), SettingDependencyOperatorEquals, false, m_settingsManager)));
++  SettingDependencies depsCms3dlut;
++  depsCms3dlut.push_back(dependencyCmsEnabled);
++  depsCms3dlut.push_back(dependencyCms3dlut);
++
+   // color management settings
++  AddToggle(groupColorManagement, SETTING_VIDEO_CMSENABLE, 36554, 0, CSettings::Get().GetBool(SETTING_VIDEO_CMSENABLE));
++
++  int currentMode = CSettings::Get().GetInt(SETTING_VIDEO_CMSMODE);
+   entries.clear();
+-  entries.push_back(std::make_pair(16039, 0 /* CMS_MODE_OFF */)); // FIXME: get from CMS class
+-  entries.push_back(std::make_pair(16042, 1 /* CMS_MODE_3DLUT */ ));
++  // entries.push_back(std::make_pair(16039, CMS_MODE_OFF)); // FIXME: get from CMS class
++  entries.push_back(std::make_pair(16042, CMS_MODE_3DLUT));
+ #ifdef HAVE_LCMS2
+-  entries.push_back(std::make_pair(16043, 2 /* CMS_MODE_PROFILE */));
++  entries.push_back(std::make_pair(16043, CMS_MODE_PROFILE));
+ #endif
+-  int currentMode = CSettings::Get().GetInt("videoscreen.colormanagement");
+-  AddSpinner(groupColorManagement, SETTING_VIDEO_CMSMODE, 36554, 0, currentMode, entries);
+-  std::string current3dLUT = CSettings::Get().GetString("videoscreen.cms3dlut");
+-  AddList(groupColorManagement, SETTING_VIDEO_CMS3DLUT, 36555, 0, current3dLUT, Cms3dLutsFiller, 36555);
++  CSettingInt *settingCmsMode = AddSpinner(groupColorManagement, SETTING_VIDEO_CMSMODE, 36555, 0, currentMode, entries);
++  settingCmsMode->SetDependencies(depsCmsEnabled);
++
++  std::string current3dLUT = CSettings::Get().GetString(SETTING_VIDEO_CMS3DLUT);
++  CSettingString *settingCms3dlut = AddList(groupColorManagement, SETTING_VIDEO_CMS3DLUT, 36556, 0, current3dLUT, Cms3dLutsFiller, 36555);
++  settingCms3dlut->SetDependencies(depsCms3dlut);
+ }
+ 
+ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+@@ -103,7 +125,9 @@ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+   CGUIDialogSettingsManualBase::OnSettingChanged(setting);
+ 
+   const std::string &settingId = setting->GetId();
+-  if (settingId == SETTING_VIDEO_CMSMODE)
++  if (settingId == SETTING_VIDEO_CMSENABLE)
++    CSettings::Get().SetBool(SETTING_VIDEO_CMSENABLE, (static_cast<const CSettingBool*>(setting)->GetValue()));
++  else if (settingId == SETTING_VIDEO_CMSMODE)
+     CSettings::Get().SetInt(SETTING_VIDEO_CMSMODE, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMS3DLUT)
+     CSettings::Get().SetString(SETTING_VIDEO_CMS3DLUT, static_cast<std::string>(static_cast<const CSettingString*>(setting)->GetValue()));
+@@ -131,7 +155,7 @@ void CGUIDialogCMSSettings::Cms3dLutsFiller(
+   CFileItemList items;
+ 
+   // list .3dlut files
+-  std::string current3dlut = CSettings::Get().GetString("videoscreen.cms3dlut");
++  std::string current3dlut = CSettings::Get().GetString(SETTING_VIDEO_CMS3DLUT);
+   if (!current3dlut.empty())
+     current3dlut = URIUtils::GetDirectory(current3dlut);
+   XFILE::CDirectory::GetDirectory(current3dlut, items, ".3dlut");
+-- 
+2.4.3
+
+From 983f394bdbd3f80f6776ab539eb32da52b3324e6 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 16 Aug 2015 00:29:03 -0700
+Subject: [PATCH 39/43] settings: remove unused getter from WinSystem
+
+---
+ xbmc/windowing/WinSystem.cpp | 11 -----------
+ xbmc/windowing/WinSystem.h   |  2 --
+ 2 files changed, 13 deletions(-)
+
+diff --git a/xbmc/windowing/WinSystem.cpp b/xbmc/windowing/WinSystem.cpp
+index a51c3ba..5b7a067 100644
+--- a/xbmc/windowing/WinSystem.cpp
++++ b/xbmc/windowing/WinSystem.cpp
+@@ -272,17 +272,6 @@ unsigned CWinSystemBase::DitherDepth()
+ #endif
+ }
+ 
+-bool CWinSystemBase::Use3DLUT()
+-{
+-#if defined(HAS_GL)
+-  static CSettingInt* setting = (CSettingInt*)CSettings::Get().GetSetting("videoscreen.colormanagement");
+-  // FIXME: check if the 3dlut file or display profile exists
+-  return setting->GetValue() > 0;
+-#else
+-  return false;
+-#endif
+-}
+-
+ std::string CWinSystemBase::GetClipboardText(void)
+ {
+   return "";
+diff --git a/xbmc/windowing/WinSystem.h b/xbmc/windowing/WinSystem.h
+index 6372234..a9e5515 100644
+--- a/xbmc/windowing/WinSystem.h
++++ b/xbmc/windowing/WinSystem.h
+@@ -80,8 +80,6 @@ public:
+   virtual bool UseDithering();
+   virtual unsigned DitherDepth();
+ 
+-  virtual bool Use3DLUT();
+-
+   virtual bool Minimize() { return false; }
+   virtual bool Restore() { return false; }
+   virtual bool Hide() { return false; }
+-- 
+2.4.3
+
+From aa461f29452d3c4b5d1025b59ca7d7b531be1911 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 16 Aug 2015 15:09:39 -0700
+Subject: [PATCH 40/43] cms: allow interactive gamma adjustment
+
+---
+ addons/resource.language.en_gb/resources/strings.po | 20 +++++++++++++++++++-
+ system/settings/settings.xml                        | 20 ++++++++++++++++++++
+ xbmc/ColorManager.cpp                               |  5 ++++-
+ xbmc/ColorManager.h                                 |  1 +
+ xbmc/video/dialogs/GUIDialogCMSSettings.cpp         | 17 +++++++++++++++++
+ 5 files changed, 61 insertions(+), 2 deletions(-)
+
+diff --git a/addons/resource.language.en_gb/resources/strings.po b/addons/resource.language.en_gb/resources/strings.po
+index 7d8c825..6ff73ab 100644
+--- a/addons/resource.language.en_gb/resources/strings.po
++++ b/addons/resource.language.en_gb/resources/strings.po
+@@ -16331,7 +16331,25 @@ msgctxt "#36556"
+ msgid "3D LUT"
+ msgstr ""
+ 
+-#empty strings from id 36557 to 36599
++#. label of a setting, allowing to specify the type of display gamma
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++msgctxt "#36557"
++msgid "Gamma type"
++msgstr ""
++
++#. label of a setting, allowing to specify the effective display gamma
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++msgctxt "#36558"
++msgid "Effective gamma"
++msgstr ""
++
++#. gamma display format
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++msgctxt "#36559"
++msgid "%1.2f"
++msgstr ""
++
++#empty strings from id 36560 to 36599
+ #reserved strings 365XX
+ 
+ #. Description of settings category "Music -> Library" with label #14022
+diff --git a/system/settings/settings.xml b/system/settings/settings.xml
+index 0513390..75c3494 100644
+--- a/system/settings/settings.xml
++++ b/system/settings/settings.xml
+@@ -2567,6 +2567,26 @@
+           </dependencies>
+           <control type="button" format="action" />
+         </setting>
++        <setting id="videoscreen.cmsgamma" type="integer" label="36558" help="36558">
++          <requirement>
++            <and>
++              <condition>HAS_GL</condition>
++              <condition>HAVE_LCMS2</condition>
++            </and>
++          </requirement>
++          <level>3</level>
++          <default>220</default>
++          <constraints>
++            <minimum>160</minimum>
++            <step>005</step>
++            <maximum>280</maximum>
++          </constraints>
++          <dependencies>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++            <dependency type="visible" setting="videoscreen.cmsmode" operator="is">1</dependency>
++          </dependencies>
++          <control type="spinner" format="integer" />
++        </setting>
+       </group>
+     </category>
+     <category id="audiooutput" label="772" help="36360">
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 245cf2c..2e61c61 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -76,8 +76,9 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+       // create gamma curve
+       cmsToneCurve* gammaCurve;
+       // TODO: gamma paremeters
++      curIccGamma = CSettings::Get().GetInt("videoscreen.cmsgamma");
+       gammaCurve =
+-        CreateToneCurve(CMS_TRC_INPUT_OFFSET, 2.2, m_blackPoint);
++        CreateToneCurve(CMS_TRC_OUTPUT_OFFSET, curIccGamma/100.0f, m_blackPoint);
+ 
+       // create source profile
+       // TODO: primaries and whitepoint selection
+@@ -135,6 +136,8 @@ bool CColorManager::CheckConfiguration(int cmsToken)
+   case CMS_MODE_PROFILE:
+     if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
+       return false; // different ICC profile selected
++    if (curIccGamma != CSettings::Get().GetInt("videoscreen.cmsgamma"))
++      return false; // effective gamma changed
+     // TODO: check other parameters
+     break;
+   default:
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index a6b42b7..ec15ffe 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -140,6 +140,7 @@ private:
+   int curCmsMode;
+   std::string cur3dlutFile;
+   std::string curIccProfile;
++  int curIccGamma;
+   // display parameters (gamma, input/output offset, primaries, whitepoint?, intent)
+ 
+  
+diff --git a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+index e692fb1..ce97cc2 100644
+--- a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++++ b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+@@ -46,6 +46,7 @@
+ #define SETTING_VIDEO_CMSENABLE           "videoscreen.cmsenabled"
+ #define SETTING_VIDEO_CMSMODE             "videoscreen.cmsmode"
+ #define SETTING_VIDEO_CMS3DLUT            "videoscreen.cms3dlut"
++#define SETTING_VIDEO_CMSGAMMA            "videoscreen.cmsgamma"
+ 
+ CGUIDialogCMSSettings::CGUIDialogCMSSettings()
+     : CGUIDialogSettingsManualBase(WINDOW_DIALOG_CMS_OSD_SETTINGS, "VideoOSDSettings.xml")
+@@ -99,6 +100,14 @@ void CGUIDialogCMSSettings::InitializeSettings()
+   depsCms3dlut.push_back(dependencyCmsEnabled);
+   depsCms3dlut.push_back(dependencyCms3dlut);
+ 
++  // create "depsCmsIcc" for display settings with icc profile
++  CSettingDependency dependencyCmsIcc(SettingDependencyTypeVisible, m_settingsManager);
++  dependencyCmsIcc.And()
++    ->Add(CSettingDependencyConditionPtr(new CSettingDependencyCondition(SETTING_VIDEO_CMSMODE, std::to_string(CMS_MODE_PROFILE), SettingDependencyOperatorEquals, false, m_settingsManager)));
++  SettingDependencies depsCmsIcc;
++  depsCmsIcc.push_back(dependencyCmsEnabled);
++  depsCmsIcc.push_back(dependencyCmsIcc);
++
+   // color management settings
+   AddToggle(groupColorManagement, SETTING_VIDEO_CMSENABLE, 36554, 0, CSettings::Get().GetBool(SETTING_VIDEO_CMSENABLE));
+ 
+@@ -115,6 +124,12 @@ void CGUIDialogCMSSettings::InitializeSettings()
+   std::string current3dLUT = CSettings::Get().GetString(SETTING_VIDEO_CMS3DLUT);
+   CSettingString *settingCms3dlut = AddList(groupColorManagement, SETTING_VIDEO_CMS3DLUT, 36556, 0, current3dLUT, Cms3dLutsFiller, 36555);
+   settingCms3dlut->SetDependencies(depsCms3dlut);
++
++  // display settings
++  float currentGamma = CSettings::Get().GetInt(SETTING_VIDEO_CMSGAMMA)/100.0f;
++  if (currentGamma == 0.0) currentGamma = 2.20;
++  CSettingNumber *settingCmsGamma = AddSlider(groupColorManagement, SETTING_VIDEO_CMSGAMMA, 36558, 0, currentGamma, 36559, 1.6, 0.05, 2.8, 36558, usePopup);
++  settingCmsGamma->SetDependencies(depsCmsIcc);
+ }
+ 
+ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+@@ -131,6 +146,8 @@ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+     CSettings::Get().SetInt(SETTING_VIDEO_CMSMODE, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMS3DLUT)
+     CSettings::Get().SetString(SETTING_VIDEO_CMS3DLUT, static_cast<std::string>(static_cast<const CSettingString*>(setting)->GetValue()));
++  else if (settingId == SETTING_VIDEO_CMSGAMMA)
++    CSettings::Get().SetInt(SETTING_VIDEO_CMSGAMMA, static_cast<float>(static_cast<const CSettingNumber*>(setting)->GetValue())*100);
+ }
+ 
+ bool CGUIDialogCMSSettings::OnBack(int actionID)
+-- 
+2.4.3
+
+From 267319f0116c57e5e18da2e7350037123c7227de Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 16 Aug 2015 16:01:23 -0700
+Subject: [PATCH 41/43] cms: allow interactive gamma type selection
+
+---
+ .../resource.language.en_gb/resources/strings.po   | 18 +++++++++++++++++
+ system/settings/settings.xml                       | 19 ++++++++++++++++++
+ xbmc/ColorManager.cpp                              |  5 ++++-
+ xbmc/ColorManager.h                                |  1 +
+ xbmc/settings/DisplaySettings.cpp                  | 15 ++++++++++++++
+ xbmc/settings/DisplaySettings.h                    |  1 +
+ xbmc/settings/Settings.cpp                         |  2 ++
+ xbmc/video/dialogs/GUIDialogCMSSettings.cpp        | 23 +++++++++++++++++++++-
+ 8 files changed, 82 insertions(+), 2 deletions(-)
+
+diff --git a/addons/resource.language.en_gb/resources/strings.po b/addons/resource.language.en_gb/resources/strings.po
+index 6ff73ab..44116e9 100644
+--- a/addons/resource.language.en_gb/resources/strings.po
++++ b/addons/resource.language.en_gb/resources/strings.po
+@@ -7349,6 +7349,24 @@ msgctxt "#16043"
+ msgid "ICC Profile"
+ msgstr ""
+ 
++#: xbmc/video/dialogs/GUIDialogVideoSettings.cpp
++#. gamma type labels
++msgctxt "#16044"
++msgid "BT.1886"
++msgstr ""
++
++msgctxt "#16045"
++msgid "Input offset"
++msgstr ""
++
++msgctxt "#16046"
++msgid "Output offset"
++msgstr ""
++
++msgctxt "#16047"
++msgid "Absolute"
++msgstr ""
++
+ #empty strings from id 16044 to 16099
+ 
+ #: xbmc/video/windows/GUIWindowVideoNav.cpp
+diff --git a/system/settings/settings.xml b/system/settings/settings.xml
+index 75c3494..821833b 100644
+--- a/system/settings/settings.xml
++++ b/system/settings/settings.xml
+@@ -2567,6 +2567,24 @@
+           </dependencies>
+           <control type="button" format="action" />
+         </setting>
++        <setting id="videoscreen.cmsgammamode" type="integer" label="36557" help="36557">
++          <requirement>
++            <and>
++              <condition>HAS_GL</condition>
++              <condition>HAVE_LCMS2</condition>
++            </and>
++          </requirement>
++          <level>3</level>
++          <default>0</default>
++          <constraints>
++            <options>cmsgammamodes</options>
++          </constraints>
++          <dependencies>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++            <dependency type="visible" setting="videoscreen.cmsmode" operator="is">1</dependency>
++          </dependencies>
++          <control type="list" format="integer"/>
++        </setting>
+         <setting id="videoscreen.cmsgamma" type="integer" label="36558" help="36558">
+           <requirement>
+             <and>
+@@ -2584,6 +2602,7 @@
+           <dependencies>
+             <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
+             <dependency type="visible" setting="videoscreen.cmsmode" operator="is">1</dependency>
++            <dependency type="visible" setting="videoscreen.cmsgammamode" operator="!is">0</dependency>
+           </dependencies>
+           <control type="spinner" format="integer" />
+         </setting>
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 2e61c61..83e0d4a 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -76,9 +76,10 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+       // create gamma curve
+       cmsToneCurve* gammaCurve;
+       // TODO: gamma paremeters
++      curIccGammaMode = (CMS_TRC_TYPE)CSettings::Get().GetInt("videoscreen.cmsgammamode");
+       curIccGamma = CSettings::Get().GetInt("videoscreen.cmsgamma");
+       gammaCurve =
+-        CreateToneCurve(CMS_TRC_OUTPUT_OFFSET, curIccGamma/100.0f, m_blackPoint);
++        CreateToneCurve(curIccGammaMode, curIccGamma/100.0f, m_blackPoint);
+ 
+       // create source profile
+       // TODO: primaries and whitepoint selection
+@@ -136,6 +137,8 @@ bool CColorManager::CheckConfiguration(int cmsToken)
+   case CMS_MODE_PROFILE:
+     if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
+       return false; // different ICC profile selected
++    if (curIccGammaMode != CSettings::Get().GetInt("videoscreen.cmsgammamode"))
++      return false; // gamma mode changed
+     if (curIccGamma != CSettings::Get().GetInt("videoscreen.cmsgamma"))
+       return false; // effective gamma changed
+     // TODO: check other parameters
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index ec15ffe..ff37931 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -140,6 +140,7 @@ private:
+   int curCmsMode;
+   std::string cur3dlutFile;
+   std::string curIccProfile;
++  CMS_TRC_TYPE curIccGammaMode;
+   int curIccGamma;
+   // display parameters (gamma, input/output offset, primaries, whitepoint?, intent)
+ 
+diff --git a/xbmc/settings/DisplaySettings.cpp b/xbmc/settings/DisplaySettings.cpp
+index 1bf40f7..609ccbb 100644
+--- a/xbmc/settings/DisplaySettings.cpp
++++ b/xbmc/settings/DisplaySettings.cpp
+@@ -797,6 +797,21 @@ void CDisplaySettings::SettingOptionsCmsModesFiller(const CSetting *setting, std
+   }
+ }
+ 
++void CDisplaySettings::SettingOptionsCmsGammaModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data)
++{
++  const static std::string cmsGammaModeLabels[] = {
++    "BT.1886",
++    "Input offset",
++    "Output offset",
++    "Absolute",
++  }; // FIXME: should be moved to ColorManager.h?
++  for (int i = 0; i < CMS_TRC_COUNT; i++)
++  {
++    CMS_TRC_TYPE mode = (CMS_TRC_TYPE) i;
++    list.push_back(std::make_pair(cmsGammaModeLabels[i], mode));
++  }
++}
++
+ void CDisplaySettings::SettingOptionsMonitorsFiller(const CSetting *setting, std::vector< std::pair<std::string, std::string> > &list, std::string &current, void *data)
+ {
+ #if defined(HAS_GLX)
+diff --git a/xbmc/settings/DisplaySettings.h b/xbmc/settings/DisplaySettings.h
+index 792db9d..539199d 100644
+--- a/xbmc/settings/DisplaySettings.h
++++ b/xbmc/settings/DisplaySettings.h
+@@ -98,6 +98,7 @@ public:
+   static void SettingOptionsStereoscopicModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsPreferredStereoscopicViewModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsCmsModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
++  static void SettingOptionsCmsGammaModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsMonitorsFiller(const CSetting *setting, std::vector< std::pair<std::string, std::string> > &list, std::string &current, void *data);
+ 
+ protected:
+diff --git a/xbmc/settings/Settings.cpp b/xbmc/settings/Settings.cpp
+index cc5714a..3b3b472 100644
+--- a/xbmc/settings/Settings.cpp
++++ b/xbmc/settings/Settings.cpp
+@@ -248,6 +248,7 @@ void CSettings::Uninitialize()
+   m_settingsManager->UnregisterSettingOptionsFiller("stereoscopicmodes");
+   m_settingsManager->UnregisterSettingOptionsFiller("preferedstereoscopicviewmodes");
+   m_settingsManager->UnregisterSettingOptionsFiller("cmsmodes");
++  m_settingsManager->UnregisterSettingOptionsFiller("cmsgammamodes");
+   m_settingsManager->UnregisterSettingOptionsFiller("monitors");
+   m_settingsManager->UnregisterSettingOptionsFiller("videoseeksteps");
+   m_settingsManager->UnregisterSettingOptionsFiller("shutdownstates");
+@@ -614,6 +615,7 @@ void CSettings::InitializeOptionFillers()
+   m_settingsManager->RegisterSettingOptionsFiller("stereoscopicmodes", CDisplaySettings::SettingOptionsStereoscopicModesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("preferedstereoscopicviewmodes", CDisplaySettings::SettingOptionsPreferredStereoscopicViewModesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("cmsmodes", CDisplaySettings::SettingOptionsCmsModesFiller);
++  m_settingsManager->RegisterSettingOptionsFiller("cmsgammamodes", CDisplaySettings::SettingOptionsCmsGammaModesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("monitors", CDisplaySettings::SettingOptionsMonitorsFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("videoseeksteps", CSeekHandler::SettingOptionsSeekStepsFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("shutdownstates", CPowerManager::SettingOptionsShutdownStatesFiller);
+diff --git a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+index ce97cc2..badbc1a 100644
+--- a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++++ b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+@@ -46,6 +46,7 @@
+ #define SETTING_VIDEO_CMSENABLE           "videoscreen.cmsenabled"
+ #define SETTING_VIDEO_CMSMODE             "videoscreen.cmsmode"
+ #define SETTING_VIDEO_CMS3DLUT            "videoscreen.cms3dlut"
++#define SETTING_VIDEO_CMSGAMMAMODE        "videoscreen.cmsgammamode"
+ #define SETTING_VIDEO_CMSGAMMA            "videoscreen.cmsgamma"
+ 
+ CGUIDialogCMSSettings::CGUIDialogCMSSettings()
+@@ -108,6 +109,15 @@ void CGUIDialogCMSSettings::InitializeSettings()
+   depsCmsIcc.push_back(dependencyCmsEnabled);
+   depsCmsIcc.push_back(dependencyCmsIcc);
+ 
++  // create "depsCmsGamma" for effective gamma adjustment (not available with bt.1886)
++  CSettingDependency dependencyCmsGamma(SettingDependencyTypeVisible, m_settingsManager);
++  dependencyCmsGamma.And()
++    ->Add(CSettingDependencyConditionPtr(new CSettingDependencyCondition(SETTING_VIDEO_CMSGAMMAMODE, std::to_string(CMS_TRC_BT1886), SettingDependencyOperatorEquals, true, m_settingsManager)));
++  SettingDependencies depsCmsGamma;
++  depsCmsGamma.push_back(dependencyCmsEnabled);
++  depsCmsGamma.push_back(dependencyCmsIcc);
++  depsCmsGamma.push_back(dependencyCmsGamma);
++
+   // color management settings
+   AddToggle(groupColorManagement, SETTING_VIDEO_CMSENABLE, 36554, 0, CSettings::Get().GetBool(SETTING_VIDEO_CMSENABLE));
+ 
+@@ -126,10 +136,19 @@ void CGUIDialogCMSSettings::InitializeSettings()
+   settingCms3dlut->SetDependencies(depsCms3dlut);
+ 
+   // display settings
++  int currentGammaMode = CSettings::Get().GetInt(SETTING_VIDEO_CMSGAMMAMODE);
++  entries.clear();
++  entries.push_back(std::make_pair(16044, CMS_TRC_BT1886));
++  entries.push_back(std::make_pair(16045, CMS_TRC_INPUT_OFFSET));
++  entries.push_back(std::make_pair(16046, CMS_TRC_OUTPUT_OFFSET));
++  entries.push_back(std::make_pair(16047, CMS_TRC_ABSOLUTE));
++  CSettingInt *settingCmsGammaMode = AddSpinner(groupColorManagement, SETTING_VIDEO_CMSGAMMAMODE, 36557, 0, currentGammaMode, entries);
++  settingCmsGammaMode->SetDependencies(depsCmsIcc);
++
+   float currentGamma = CSettings::Get().GetInt(SETTING_VIDEO_CMSGAMMA)/100.0f;
+   if (currentGamma == 0.0) currentGamma = 2.20;
+   CSettingNumber *settingCmsGamma = AddSlider(groupColorManagement, SETTING_VIDEO_CMSGAMMA, 36558, 0, currentGamma, 36559, 1.6, 0.05, 2.8, 36558, usePopup);
+-  settingCmsGamma->SetDependencies(depsCmsIcc);
++  settingCmsGamma->SetDependencies(depsCmsGamma);
+ }
+ 
+ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+@@ -146,6 +165,8 @@ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+     CSettings::Get().SetInt(SETTING_VIDEO_CMSMODE, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMS3DLUT)
+     CSettings::Get().SetString(SETTING_VIDEO_CMS3DLUT, static_cast<std::string>(static_cast<const CSettingString*>(setting)->GetValue()));
++  else if (settingId == SETTING_VIDEO_CMSGAMMAMODE)
++    CSettings::Get().SetInt(SETTING_VIDEO_CMSGAMMAMODE, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMSGAMMA)
+     CSettings::Get().SetInt(SETTING_VIDEO_CMSGAMMA, static_cast<float>(static_cast<const CSettingNumber*>(setting)->GetValue())*100);
+ }
+-- 
+2.4.3
+
+From 9ac2164aadc971ffd6a4ba05698f63f04e07ad99 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Sun, 16 Aug 2015 20:11:30 -0700
+Subject: [PATCH 42/43] cms: interactive whitepoint and primaries selection
+
+---
+ .../resource.language.en_gb/resources/strings.po   | 52 +++++++++++++++++++++-
+ system/settings/settings.xml                       | 36 +++++++++++++++
+ xbmc/ColorManager.cpp                              | 38 +++++++++++++---
+ xbmc/ColorManager.h                                | 11 +++--
+ xbmc/cores/VideoRenderers/LinuxRendererGL.cpp      |  6 +--
+ xbmc/settings/DisplaySettings.cpp                  | 27 +++++++++++
+ xbmc/settings/DisplaySettings.h                    |  2 +
+ xbmc/settings/Settings.cpp                         |  4 ++
+ xbmc/video/dialogs/GUIDialogCMSSettings.cpp        | 24 ++++++++++
+ 9 files changed, 185 insertions(+), 15 deletions(-)
+
+diff --git a/addons/resource.language.en_gb/resources/strings.po b/addons/resource.language.en_gb/resources/strings.po
+index 44116e9..59d3551 100644
+--- a/addons/resource.language.en_gb/resources/strings.po
++++ b/addons/resource.language.en_gb/resources/strings.po
+@@ -7367,7 +7367,43 @@ msgctxt "#16047"
+ msgid "Absolute"
+ msgstr ""
+ 
+-#empty strings from id 16044 to 16099
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++#. whitepoint labels
++msgctxt "#16048"
++msgid "D65 (standard)"
++msgstr ""
++
++msgctxt "#16049"
++msgid "D93 (Japanese NTSC)"
++msgstr ""
++
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++#. primaries labels
++msgctxt "#16050"
++msgid "Automatic"
++msgstr ""
++
++msgctxt "#16051"
++msgid "HDTV (BT.709)"
++msgstr ""
++
++msgctxt "#16052"
++msgid "SDTV (SMPTE C)"
++msgstr ""
++
++msgctxt "#16053"
++msgid "NTSC 1953 (BT.470 M)"
++msgstr ""
++
++msgctxt "#16054"
++msgid "PAL/SECAM 1975 (BT.470 B/G)"
++msgstr ""
++
++msgctxt "#16055"
++msgid "HDTV 1988 (SMPTE 240M)"
++msgstr ""
++
++#empty strings from id 16056 to 16099
+ 
+ #: xbmc/video/windows/GUIWindowVideoNav.cpp
+ msgctxt "#16100"
+@@ -16367,7 +16403,19 @@ msgctxt "#36559"
+ msgid "%1.2f"
+ msgstr ""
+ 
+-#empty strings from id 36560 to 36599
++#. label of a setting, allowing to specify the display whitepoint
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++msgctxt "#36560"
++msgid "Whitepoint"
++msgstr ""
++
++#. label of a setting, allowing to specify the display primaries
++#: xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++msgctxt "#36561"
++msgid "Primaries"
++msgstr ""
++
++#empty strings from id 36562 to 36599
+ #reserved strings 365XX
+ 
+ #. Description of settings category "Music -> Library" with label #14022
+diff --git a/system/settings/settings.xml b/system/settings/settings.xml
+index 821833b..cfecc3d 100644
+--- a/system/settings/settings.xml
++++ b/system/settings/settings.xml
+@@ -2567,6 +2567,42 @@
+           </dependencies>
+           <control type="button" format="action" />
+         </setting>
++        <setting id="videoscreen.cmswhitepoint" type="integer" label="36560" help="36560">
++          <requirement>
++            <and>
++              <condition>HAS_GL</condition>
++              <condition>HAVE_LCMS2</condition>
++            </and>
++          </requirement>
++          <level>3</level>
++          <default>0</default>
++          <constraints>
++            <options>cmswhitepoints</options>
++          </constraints>
++          <dependencies>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++            <dependency type="visible" setting="videoscreen.cmsmode" operator="is">1</dependency>
++          </dependencies>
++          <control type="list" format="integer"/>
++        </setting>
++        <setting id="videoscreen.cmsprimaries" type="integer" label="36561" help="36561">
++          <requirement>
++            <and>
++              <condition>HAS_GL</condition>
++              <condition>HAVE_LCMS2</condition>
++            </and>
++          </requirement>
++          <level>3</level>
++          <default>0</default>
++          <constraints>
++            <options>cmsprimaries</options>
++          </constraints>
++          <dependencies>
++            <dependency type="visible" setting="videoscreen.cmsenabled" operator="is">true</dependency>
++            <dependency type="visible" setting="videoscreen.cmsmode" operator="is">1</dependency>
++          </dependencies>
++          <control type="list" format="integer"/>
++        </setting>
+         <setting id="videoscreen.cmsgammamode" type="integer" label="36557" help="36557">
+           <requirement>
+             <and>
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index 83e0d4a..c0459ec 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -4,6 +4,7 @@
+ 
+ #include "config.h"
+ #include "ColorManager.h"
++#include "cores/VideoRenderers/RenderFlags.h"
+ #include "filesystem/File.h"
+ #include "settings/Settings.h"
+ #include "utils/log.h"
+@@ -19,7 +20,7 @@ CColorManager &CColorManager::Get()
+ 
+ CColorManager::CColorManager()
+ {
+-  curVideoPrimaries = 0;
++  curVideoPrimaries = CMS_PRIMARIES_AUTO;
+   curClutSize = 0;
+   curCmsToken = 0;
+   curCmsMode = 0;
+@@ -38,8 +39,20 @@ bool CColorManager::IsEnabled()
+   return CSettings::Get().GetBool("videoscreen.cmsenabled");
+ }
+ 
+-bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, uint16_t **clutData)
++CMS_PRIMARIES videoFlagsToPrimaries(int flags)
+ {
++  if (flags & CONF_FLAGS_COLPRI_BT709) return CMS_PRIMARIES_BT709;
++  if (flags & CONF_FLAGS_COLPRI_170M) return CMS_PRIMARIES_170M;
++  if (flags & CONF_FLAGS_COLPRI_BT470M) return CMS_PRIMARIES_BT470M;
++  if (flags & CONF_FLAGS_COLPRI_BT470BG) return CMS_PRIMARIES_BT470BG;
++  if (flags & CONF_FLAGS_COLPRI_240M) return CMS_PRIMARIES_240M;
++  return CMS_PRIMARIES_BT709; // default to bt.709
++}
++
++bool CColorManager::GetVideo3dLut(int videoFlags, int *cmsToken, int *clutSize, uint16_t **clutData)
++{
++  CMS_PRIMARIES videoPrimaries = videoFlagsToPrimaries(videoFlags);
++  CLog::Log(LOGDEBUG, "video primaries: %d\n", (int)videoPrimaries);
+   switch (CSettings::Get().GetInt("videoscreen.cmsmode"))
+   {
+   case CMS_MODE_3DLUT:
+@@ -83,8 +96,13 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+ 
+       // create source profile
+       // TODO: primaries and whitepoint selection
++      curIccWhitePoint = (CMS_WHITEPOINT)CSettings::Get().GetInt("videoscreen.cmswhitepoint");
++      curIccPrimaries = (CMS_PRIMARIES)CSettings::Get().GetInt("videoscreen.cmsprimaries");
++      CLog::Log(LOGDEBUG, "primaries setting: %d\n", (int)curIccPrimaries);
++      if (curIccPrimaries == CMS_PRIMARIES_AUTO) curIccPrimaries = videoPrimaries;
++      CLog::Log(LOGDEBUG, "source profile primaries: %d\n", (int)curIccPrimaries);
+       cmsHPROFILE sourceProfile =
+-        CreateSourceProfile(CMS_PRIMARIES_BT709, gammaCurve, CMS_WHITEPOINT_D65);
++        CreateSourceProfile(curIccPrimaries, gammaCurve, curIccWhitePoint);
+ 
+       // link profiles
+       // TODO: intent selection, switch output to 16 bits?
+@@ -116,13 +134,13 @@ bool CColorManager::GetVideo3dLut(int primaries, int *cmsToken, int *clutSize, u
+   }
+ 
+   // set current state
+-  curVideoPrimaries = primaries;
++  curVideoPrimaries = videoPrimaries;
+   curClutSize = *clutSize;
+   *cmsToken = ++curCmsToken;
+   return true;
+ }
+ 
+-bool CColorManager::CheckConfiguration(int cmsToken)
++bool CColorManager::CheckConfiguration(int cmsToken, int flags)
+ {
+   if (cmsToken != curCmsToken)
+     return false;
+@@ -137,7 +155,15 @@ bool CColorManager::CheckConfiguration(int cmsToken)
+   case CMS_MODE_PROFILE:
+     if (curIccProfile != CSettings::Get().GetString("videoscreen.displayprofile"))
+       return false; // different ICC profile selected
+-    if (curIccGammaMode != CSettings::Get().GetInt("videoscreen.cmsgammamode"))
++    if (curIccWhitePoint != CSettings::Get().GetInt("videoscreen.cmswhitepoint"))
++      return false; // whitepoint changed
++    {
++      CMS_PRIMARIES primaries = (CMS_PRIMARIES)CSettings::Get().GetInt("videoscreen.cmsprimaries");
++      if (primaries == CMS_PRIMARIES_AUTO) primaries = videoFlagsToPrimaries(flags);
++      if (curIccPrimaries != primaries)
++        return false; // primaries changed
++    }
++    if (curIccGammaMode != (CMS_TRC_TYPE)CSettings::Get().GetInt("videoscreen.cmsgammamode"))
+       return false; // gamma mode changed
+     if (curIccGamma != CSettings::Get().GetInt("videoscreen.cmsgamma"))
+       return false; // effective gamma changed
+diff --git a/xbmc/ColorManager.h b/xbmc/ColorManager.h
+index ff37931..ab086e8 100644
+--- a/xbmc/ColorManager.h
++++ b/xbmc/ColorManager.h
+@@ -68,9 +68,10 @@ public:
+   /*!
+    \brief Check if a 3D LUT is still valid
+    \param cmsToken pointer to a color manager configuration token
++   \param flags video renderer flags (see CONF_FLAGS_COLPRI)
+    \return true on valid, false if 3D LUT should be reloaded
+    */
+-  bool CheckConfiguration(int cmsToken);
++  bool CheckConfiguration(int cmsToken, int flags);
+ 
+ private:
+   // private constructor, use the Get() method to access an instance
+@@ -133,16 +134,18 @@ private:
+ #endif // HAVE_LCMS2
+ 
+   // current configuration:
+-  int curVideoPrimaries;
++  CMS_PRIMARIES curVideoPrimaries;
+   int curClutSize;
+   int curCmsToken;
+   // (compare the following to system settings to see if configuration is still valid)
+   int curCmsMode;
+   std::string cur3dlutFile;
+   std::string curIccProfile;
++  // display parameters (gamma, input/output offset, primaries, whitepoint, intent?)
++  CMS_WHITEPOINT curIccWhitePoint;
++  CMS_PRIMARIES curIccPrimaries;
+   CMS_TRC_TYPE curIccGammaMode;
+-  int curIccGamma;
+-  // display parameters (gamma, input/output offset, primaries, whitepoint?, intent)
++  int curIccGamma;  // gamma multiplied by 100
+ 
+  
+ };
+diff --git a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+index 35ef530..ebfc2e8 100644
+--- a/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
++++ b/xbmc/cores/VideoRenderers/LinuxRendererGL.cpp
+@@ -306,7 +306,7 @@ bool CLinuxRendererGL::Configure(unsigned int width, unsigned int height, unsign
+   CColorManager &cms = CColorManager::Get();
+   if (cms.IsEnabled())
+   {
+-    if (!cms.CheckConfiguration(m_cmsToken))
++    if (!cms.CheckConfiguration(m_cmsToken, m_iFlags))
+     {
+       CLog::Log(LOGDEBUG, "CMS configuration changed, reload LUT");
+       if (!LoadCLUT())
+@@ -752,7 +752,7 @@ void CLinuxRendererGL::UpdateVideoFilter()
+                               (m_pixelRatio > 1.001f || m_pixelRatio < 0.999f);
+   bool nonLinStretchChanged = false;
+   bool cmsChanged           = (m_cmsOn != CColorManager::Get().IsEnabled())
+-                              || (m_cmsOn && !CColorManager::Get().CheckConfiguration(m_cmsToken));
++                              || (m_cmsOn && !CColorManager::Get().CheckConfiguration(m_cmsToken, m_iFlags));
+   if (m_nonLinStretchGui != CDisplaySettings::Get().IsNonLinearStretched() || pixelRatioChanged)
+   {
+     m_nonLinStretchGui   = CDisplaySettings::Get().IsNonLinearStretched();
+@@ -786,7 +786,7 @@ void CLinuxRendererGL::UpdateVideoFilter()
+   {
+     if (CColorManager::Get().IsEnabled())
+     {
+-      if (!CColorManager::Get().CheckConfiguration(m_cmsToken))
++      if (!CColorManager::Get().CheckConfiguration(m_cmsToken, m_iFlags))
+       {
+         CLog::Log(LOGDEBUG, "CMS configuration changed, reload LUT");
+         LoadCLUT();
+diff --git a/xbmc/settings/DisplaySettings.cpp b/xbmc/settings/DisplaySettings.cpp
+index 609ccbb..c4e38e5 100644
+--- a/xbmc/settings/DisplaySettings.cpp
++++ b/xbmc/settings/DisplaySettings.cpp
+@@ -797,6 +797,33 @@ void CDisplaySettings::SettingOptionsCmsModesFiller(const CSetting *setting, std
+   }
+ }
+ 
++void CDisplaySettings::SettingOptionsCmsWhitepointsFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data)
++{
++  const static std::string cmsWhitepointLabels[] = { "D65", "D93" }; // FIXME: should be moved to ColorManager.h?
++  for (int i = 0; i < CMS_WHITEPOINT_COUNT; i++)
++  {
++    CMS_WHITEPOINT whitepoint = (CMS_WHITEPOINT) i;
++    list.push_back(std::make_pair(cmsWhitepointLabels[i], whitepoint));
++  }
++}
++
++void CDisplaySettings::SettingOptionsCmsPrimariesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data)
++{
++  const static std::string cmsPrimariesLabels[] = {
++    "Automatic",
++    "HDTV",
++    "SDTV",
++    "NTSC 1953",
++    "PAL/SECAM 1975",
++    "HDTV 1988",
++  }; // FIXME: should be moved to ColorManager.h?
++  for (int i = 0; i < CMS_PRIMARIES_COUNT; i++)
++  {
++    CMS_PRIMARIES primaries = (CMS_PRIMARIES) i;
++    list.push_back(std::make_pair(cmsPrimariesLabels[i], primaries));
++  }
++}
++
+ void CDisplaySettings::SettingOptionsCmsGammaModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data)
+ {
+   const static std::string cmsGammaModeLabels[] = {
+diff --git a/xbmc/settings/DisplaySettings.h b/xbmc/settings/DisplaySettings.h
+index 539199d..e2ca885 100644
+--- a/xbmc/settings/DisplaySettings.h
++++ b/xbmc/settings/DisplaySettings.h
+@@ -98,6 +98,8 @@ public:
+   static void SettingOptionsStereoscopicModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsPreferredStereoscopicViewModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsCmsModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
++  static void SettingOptionsCmsWhitepointsFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
++  static void SettingOptionsCmsPrimariesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsCmsGammaModesFiller(const CSetting *setting, std::vector< std::pair<std::string, int> > &list, int &current, void *data);
+   static void SettingOptionsMonitorsFiller(const CSetting *setting, std::vector< std::pair<std::string, std::string> > &list, std::string &current, void *data);
+ 
+diff --git a/xbmc/settings/Settings.cpp b/xbmc/settings/Settings.cpp
+index 3b3b472..173cef7 100644
+--- a/xbmc/settings/Settings.cpp
++++ b/xbmc/settings/Settings.cpp
+@@ -248,6 +248,8 @@ void CSettings::Uninitialize()
+   m_settingsManager->UnregisterSettingOptionsFiller("stereoscopicmodes");
+   m_settingsManager->UnregisterSettingOptionsFiller("preferedstereoscopicviewmodes");
+   m_settingsManager->UnregisterSettingOptionsFiller("cmsmodes");
++  m_settingsManager->UnregisterSettingOptionsFiller("cmswhitepoints");
++  m_settingsManager->UnregisterSettingOptionsFiller("cmsprimaries");
+   m_settingsManager->UnregisterSettingOptionsFiller("cmsgammamodes");
+   m_settingsManager->UnregisterSettingOptionsFiller("monitors");
+   m_settingsManager->UnregisterSettingOptionsFiller("videoseeksteps");
+@@ -615,6 +617,8 @@ void CSettings::InitializeOptionFillers()
+   m_settingsManager->RegisterSettingOptionsFiller("stereoscopicmodes", CDisplaySettings::SettingOptionsStereoscopicModesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("preferedstereoscopicviewmodes", CDisplaySettings::SettingOptionsPreferredStereoscopicViewModesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("cmsmodes", CDisplaySettings::SettingOptionsCmsModesFiller);
++  m_settingsManager->RegisterSettingOptionsFiller("cmswhitepoints", CDisplaySettings::SettingOptionsCmsWhitepointsFiller);
++  m_settingsManager->RegisterSettingOptionsFiller("cmsprimaries", CDisplaySettings::SettingOptionsCmsPrimariesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("cmsgammamodes", CDisplaySettings::SettingOptionsCmsGammaModesFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("monitors", CDisplaySettings::SettingOptionsMonitorsFiller);
+   m_settingsManager->RegisterSettingOptionsFiller("videoseeksteps", CSeekHandler::SettingOptionsSeekStepsFiller);
+diff --git a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+index badbc1a..2a1ba0b 100644
+--- a/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
++++ b/xbmc/video/dialogs/GUIDialogCMSSettings.cpp
+@@ -46,6 +46,8 @@
+ #define SETTING_VIDEO_CMSENABLE           "videoscreen.cmsenabled"
+ #define SETTING_VIDEO_CMSMODE             "videoscreen.cmsmode"
+ #define SETTING_VIDEO_CMS3DLUT            "videoscreen.cms3dlut"
++#define SETTING_VIDEO_CMSWHITEPOINT       "videoscreen.cmswhitepoint"
++#define SETTING_VIDEO_CMSPRIMARIES        "videoscreen.cmsprimaries"
+ #define SETTING_VIDEO_CMSGAMMAMODE        "videoscreen.cmsgammamode"
+ #define SETTING_VIDEO_CMSGAMMA            "videoscreen.cmsgamma"
+ 
+@@ -136,6 +138,24 @@ void CGUIDialogCMSSettings::InitializeSettings()
+   settingCms3dlut->SetDependencies(depsCms3dlut);
+ 
+   // display settings
++  int currentWhitepoint = CSettings::Get().GetInt(SETTING_VIDEO_CMSWHITEPOINT);
++  entries.clear();
++  entries.push_back(std::make_pair(16048, CMS_WHITEPOINT_D65));
++  entries.push_back(std::make_pair(16049, CMS_WHITEPOINT_D93));
++  CSettingInt *settingCmsWhitepoint = AddSpinner(groupColorManagement, SETTING_VIDEO_CMSWHITEPOINT, 36560, 0, currentWhitepoint, entries);
++  settingCmsWhitepoint->SetDependencies(depsCmsIcc);
++
++  int currentPrimaries = CSettings::Get().GetInt(SETTING_VIDEO_CMSPRIMARIES);
++  entries.clear();
++  entries.push_back(std::make_pair(16050, CMS_PRIMARIES_AUTO));
++  entries.push_back(std::make_pair(16051, CMS_PRIMARIES_BT709));
++  entries.push_back(std::make_pair(16052, CMS_PRIMARIES_170M));
++  entries.push_back(std::make_pair(16053, CMS_PRIMARIES_BT470M));
++  entries.push_back(std::make_pair(16054, CMS_PRIMARIES_BT470BG));
++  entries.push_back(std::make_pair(16055, CMS_PRIMARIES_240M));
++  CSettingInt *settingCmsPrimaries = AddSpinner(groupColorManagement, SETTING_VIDEO_CMSPRIMARIES, 36561, 0, currentPrimaries, entries);
++  settingCmsPrimaries->SetDependencies(depsCmsIcc);
++
+   int currentGammaMode = CSettings::Get().GetInt(SETTING_VIDEO_CMSGAMMAMODE);
+   entries.clear();
+   entries.push_back(std::make_pair(16044, CMS_TRC_BT1886));
+@@ -165,6 +185,10 @@ void CGUIDialogCMSSettings::OnSettingChanged(const CSetting *setting)
+     CSettings::Get().SetInt(SETTING_VIDEO_CMSMODE, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMS3DLUT)
+     CSettings::Get().SetString(SETTING_VIDEO_CMS3DLUT, static_cast<std::string>(static_cast<const CSettingString*>(setting)->GetValue()));
++  else if (settingId == SETTING_VIDEO_CMSWHITEPOINT)
++    CSettings::Get().SetInt(SETTING_VIDEO_CMSWHITEPOINT, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
++  else if (settingId == SETTING_VIDEO_CMSPRIMARIES)
++    CSettings::Get().SetInt(SETTING_VIDEO_CMSPRIMARIES, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMSGAMMAMODE)
+     CSettings::Get().SetInt(SETTING_VIDEO_CMSGAMMAMODE, static_cast<int>(static_cast<const CSettingInt*>(setting)->GetValue()));
+   else if (settingId == SETTING_VIDEO_CMSGAMMA)
+-- 
+2.4.3
+
+From b38e1473e55bc3efd9eeb92580e8c4b6ede356c4 Mon Sep 17 00:00:00 2001
+From: Lauri Myllari <lauri.myllari@gmail.com>
+Date: Tue, 18 Aug 2015 20:03:41 -0700
+Subject: [PATCH 43/43] cms: clean up parameter TODO comments
+
+---
+ xbmc/ColorManager.cpp | 38 +++++++++++++++++++++++++++++++++-----
+ 1 file changed, 33 insertions(+), 5 deletions(-)
+
+diff --git a/xbmc/ColorManager.cpp b/xbmc/ColorManager.cpp
+index c0459ec..732cf90 100644
+--- a/xbmc/ColorManager.cpp
++++ b/xbmc/ColorManager.cpp
+@@ -8,6 +8,7 @@
+ #include "filesystem/File.h"
+ #include "settings/Settings.h"
+ #include "utils/log.h"
++#include "utils/TimeUtils.h"
+ 
+ using namespace XFILE;
+ namespace ba = boost::algorithm;
+@@ -88,14 +89,12 @@ bool CColorManager::GetVideo3dLut(int videoFlags, int *cmsToken, int *clutSize,
+       }
+       // create gamma curve
+       cmsToneCurve* gammaCurve;
+-      // TODO: gamma paremeters
+       curIccGammaMode = (CMS_TRC_TYPE)CSettings::Get().GetInt("videoscreen.cmsgammamode");
+       curIccGamma = CSettings::Get().GetInt("videoscreen.cmsgamma");
+       gammaCurve =
+         CreateToneCurve(curIccGammaMode, curIccGamma/100.0f, m_blackPoint);
+ 
+       // create source profile
+-      // TODO: primaries and whitepoint selection
+       curIccWhitePoint = (CMS_WHITEPOINT)CSettings::Get().GetInt("videoscreen.cmswhitepoint");
+       curIccPrimaries = (CMS_PRIMARIES)CSettings::Get().GetInt("videoscreen.cmsprimaries");
+       CLog::Log(LOGDEBUG, "primaries setting: %d\n", (int)curIccPrimaries);
+@@ -107,14 +106,32 @@ bool CColorManager::GetVideo3dLut(int videoFlags, int *cmsToken, int *clutSize,
+       // link profiles
+       // TODO: intent selection, switch output to 16 bits?
+       cmsSetAdaptationState(0.0);
++#ifdef _DEBUG
++      int64_t start;
++      start = CurrentHostCounter();
++#endif
+       cmsHTRANSFORM deviceLink =
+         cmsCreateTransform(sourceProfile, TYPE_RGB_FLT,
+             m_hProfile, TYPE_RGB_FLT,
+             INTENT_ABSOLUTE_COLORIMETRIC, 0);
++#ifdef _DEBUG
++      int64_t end, freq;
++      end = CurrentHostCounter();
++      freq = CurrentHostFrequency();
++      CLog::Log(LOGDEBUG,"Profile linking: %.2fms", 1000.f * (end - start) / freq);
++#endif
+ 
+       // sample the transformation
+       *clutSize = 64;
++#ifdef _DEBUG
++      start = CurrentHostCounter();
++#endif
+       Create3dLut(deviceLink, clutData, clutSize);
++#ifdef _DEBUG
++      end = CurrentHostCounter();
++      freq = CurrentHostFrequency();
++      CLog::Log(LOGDEBUG,"Profile sampling: %.2fms", 1000.f * (end - start) / freq);
++#endif
+ 
+       // free gamma curve, source profile and transformation
+       cmsDeleteTransform(deviceLink);
+@@ -484,14 +501,25 @@ bool CColorManager::Create3dLut(cmsHTRANSFORM transform, uint16_t **clutData, in
+     }
+ 
+ #if 1 // debug 3dLUT greyscale
++/*
++    (*clutData)[3*(0*lutResolution*lutResolution + 0*lutResolution + 0)] = 65535;
++    (*clutData)[3*(0*lutResolution*lutResolution + 0*lutResolution + 0)+1] = 0;
++    (*clutData)[3*(0*lutResolution*lutResolution + 0*lutResolution + 0)+2] = 0;
++    (*clutData)[3*(1*lutResolution*lutResolution + 1*lutResolution + 1)] = 0;
++    (*clutData)[3*(1*lutResolution*lutResolution + 1*lutResolution + 1)+1] = 65535;
++    (*clutData)[3*(1*lutResolution*lutResolution + 1*lutResolution + 1)+2] = 0;
++    (*clutData)[3*(2*lutResolution*lutResolution + 2*lutResolution + 2)] = 0;
++    (*clutData)[3*(2*lutResolution*lutResolution + 2*lutResolution + 2)+1] = 0;
++    (*clutData)[3*(2*lutResolution*lutResolution + 2*lutResolution + 2)+2] = 65535;
++*/
+     for (int y=0; y<lutResolution; y+=1)
+     {
+       int index = 3*(y*lutResolution*lutResolution + y*lutResolution + y);
+       CLog::Log(LOGDEBUG, "  %d (%d): %d %d %d\n",
+           (int)round(y * 255 / (lutResolution-1.0)), y,
+-          (int)round((*clutData)[index+0]/256),
+-          (int)round((*clutData)[index+1]/256),
+-          (int)round((*clutData)[index+2]/256));
++          (int)round((*clutData)[index+0]),
++          (int)round((*clutData)[index+1]),
++          (int)round((*clutData)[index+2]));
+     }
+ #endif
+ 
 -- 
 2.4.3
 
